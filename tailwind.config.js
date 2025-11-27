@@ -17,7 +17,7 @@ export default {
         backgroundColor: '#FFFFFF',
         bodyColor: '#000000',
         accentColor1: {
-          DEFAULT: '#A75809',
+          DEFAULT: '#0471F6',
           50: 'color-mix(in srgb, #A75809 50%, transparent)',
         },
         accentColor2: '#F8F2EC',
