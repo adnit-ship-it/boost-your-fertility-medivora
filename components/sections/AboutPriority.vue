@@ -12,7 +12,7 @@
                     mass: 1,
                     delay: 100,
                 },
-            }" class="text-[20px] md:text-[28px] lg:text-[32px] w-full text-left font-defaultSerif font-semibold">
+            }" class="text-[20px] md:text-[28px] lg:text-[32px] w-full text-left  font-semibold">
                 {{ priority?.title || 'Your Satisfaction Is Our Priority' }}
             </h2>
             <div class="mt-6 lg:mt-10 flex flex-col md:flex-row gap-4 md:justify-between w-full px-8 lg:px-0">

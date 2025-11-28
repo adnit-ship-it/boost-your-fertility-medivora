@@ -38,7 +38,7 @@ defineProps<Props>()
 const siteTextStore = useSiteTextStore()
 const common = computed(() => siteTextStore.getCommonText())
 const loadingScreenLogo = computed(() => common.value?.branding?.loadingScreen?.logo)
-const loadingLogoSrc = computed(() => loadingScreenLogo.value?.src || '/assets/images/brand/logo-alt.svg')
+const loadingLogoSrc = computed(() => loadingScreenLogo.value?.src || '/assets/images/brand/primary-logo-1764263764776.png')
 const loadingLogoAlt = computed(() => loadingScreenLogo.value?.alt || common.value?.accessibility?.brandLogo || 'Brand logo')
 const loadingText = computed(() => common.value?.status?.loading || 'Loading...')
 

@@ -64,34 +64,49 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  textColor: {
+    type: String,
+    default: null,
+  },
 });
 
 const buttonClasses = computed(() => {
   const baseClasses =
     "flex items-center justify-center font-medium transition-colors rounded-full px-2 md:px-6  ";
 
+  // Determine text color class
+  const getTextColorClass = () => {
+    if (props.textColor) {
+      // If textColor prop is provided, use it (supports both "accentColor1" and "text-accentColor1" formats)
+      return props.textColor.startsWith('text-') ? props.textColor : `text-${props.textColor}`;
+    }
+    return null; // Will use default text colors below
+  };
+
+  const textColorClass = getTextColorClass();
+
   // Handle variant-based styling
   if (props.decorative) {
     // Decorative buttons don't have pointer cursor or button-specific interactions
     if (props.variant === "ghost" || props.ghost) {
-      return `${baseClasses} border border-accentColor1 text-accentColor1 bg-[#E6CFB6]`;
+      return `${baseClasses} border border-accentColor1 ${textColorClass || 'text-accentColor1'} bg-[#E6CFB6]`;
     } else if (props.variant === "disabled" || props.disabled) {
-      return `${baseClasses} bg-gray-300 text-gray-500`;
+      return `${baseClasses} bg-gray-300 ${textColorClass || 'text-gray-500'}`;
     } else if (props.variant === "loading" || props.loading) {
-      return `${baseClasses} bg-accentColor1 text-white opacity-75`;
+      return `${baseClasses} bg-accentColor1 ${textColorClass || 'text-white'} opacity-75`;
     } else {
-      return `${baseClasses} bg-accentColor1 text-white`;
+      return `${baseClasses} bg-accentColor1 ${textColorClass || 'text-white'}`;
     }
   } else {
     // Regular buttons with pointer cursor and button interactions
     if (props.variant === "ghost" || props.ghost) {
-      return `${baseClasses} border border-accentColor1 text-accentColor1 bg-[#E6CFB6] cursor-pointer`;
+      return `${baseClasses} border border-accentColor1 ${textColorClass || 'text-accentColor1'} bg-[#E6CFB6] cursor-pointer`;
     } else if (props.variant === "disabled" || props.disabled) {
-      return `${baseClasses} bg-gray-300 text-gray-500 cursor-not-allowed`;
+      return `${baseClasses} bg-gray-300 ${textColorClass || 'text-gray-500'} cursor-not-allowed`;
     } else if (props.variant === "loading" || props.loading) {
-      return `${baseClasses} bg-accentColor1 text-white opacity-75 cursor-not-allowed`;
+      return `${baseClasses} bg-accentColor1 ${textColorClass || 'text-white'} opacity-75 cursor-not-allowed`;
     } else {
-      return `${baseClasses} bg-accentColor1 text-white cursor-pointer`;
+      return `${baseClasses} bg-accentColor1 ${textColorClass || 'text-white'} cursor-pointer`;
     }
   }
 });

@@ -12,7 +12,7 @@
           mass: 1,
           delay: 100,
         },
-      }" class="pb-[24px] font-defaultSerif text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black">
+      }" class="pb-[24px]  text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black">
         {{ reviewsSection?.title || 'What Our Customers Have To Say' }}
       </h2>
     </UiSectionContainer>
@@ -39,7 +39,7 @@
                 <img 
                   :src="reviewsMedia.avatar?.src" 
                   :alt="reviewsMedia.avatar?.alt" 
-                  :style="getSvgColorStyle(reviewsMedia.avatar?.color)"
+                  :style="{ color: 'red' }"
                   class="w-[24px] h-[24px] md:w-[32px] md:h-[32px]" />
                 <p class="text-accentColor1 text-[16px] md:text-[24px] font-medium">
                   {{ review.name }}

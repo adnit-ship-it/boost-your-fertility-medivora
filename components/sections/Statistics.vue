@@ -13,7 +13,7 @@
           delay: 100,
         },
       }"
-        class="w-full max-w-[1168px] font-defaultSerif text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
+        class="w-full max-w-[1168px]  text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
         {{ statistics?.title || 'Clinically Proven To Help You Lose Weight' }}
       </h2>
       <div class="flex gap-12">

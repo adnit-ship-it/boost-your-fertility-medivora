@@ -1,7 +1,7 @@
 <template>
   <nav :class="[
     'w-full fixed top-0 z-50 flex justify-center shadow-lg',
-    props.color || 'bg-white'
+    'bg-accentColor1'
   ]">
     <div v-motion :initial="{ opacity: 0.3, y: 8 }" :visible-once="{
       opacity: 1,
@@ -41,20 +41,20 @@
         <!-- Navigation links in middle -->
         <div v-if="!props.hideNavigation" class="hidden md:flex items-center gap-8">
           <NuxtLink to="/about">
-            <p class="text-black text-lg font-medium">{{ navigation?.about || 'About' }}</p>
+            <p class="text-white text-lg font-medium">{{ navigation?.about || 'About' }}</p>
           </NuxtLink>
           <NuxtLink to="/contact">
-            <p class="text-black text-lg font-medium">{{ navigation?.contact || 'Contact' }}</p>
+            <p class="text-white text-lg font-medium">{{ navigation?.contact || 'Contact' }}</p>
           </NuxtLink>
           <NuxtLink to="/products">
-            <p class="text-black text-lg font-medium">{{ navigation?.product || 'Product' }}</p>
+            <p class="text-white text-lg font-medium">{{ navigation?.product || 'Product' }}</p>
           </NuxtLink>
         </div>
 
         <!-- Get Started button on right -->
         <div v-if="!props.hideNavigation" class="flex flex-row items-center md:gap-3 relative">
           <NuxtLink to="/consultation">
-            <UiButton width="176px" height="32px" font-size="20">
+            <UiButton width="176px" height="32px" font-size="20" class="bg-white text-accentColor1" text-color="text-accentColor1"  >
               {{ buttons?.getStarted || 'Get Started' }}
             </UiButton>
           </NuxtLink>
@@ -116,8 +116,8 @@ const getPageLayout = computed(() => {
 });
 
 const navbarLogo = computed(() => getPageLayout.value?.navbar?.logo);
-const navbarLogoSrc = computed(() => navbarLogo.value?.src || "/assets/images/brand/logo.svg");
-const navbarLogoAlt = computed(() => navbarLogo.value?.alt || common.value?.accessibility?.brandLogo || "Brand logo");
+const navbarLogoSrc = "/assets/images/brand/primary-logo-1764263764776.png";
+const navbarLogoAlt = "Boost Your Fertility Primary Logo";
 
 // Mobile detection
 const isMobile = ref(false);

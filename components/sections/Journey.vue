@@ -19,7 +19,7 @@
               delay: 50,
             },
           }"
-          class="font-defaultSerif w-full text-[20px] md:text-[28px] lg:text-[32px] mb-9 md:mb-12 font-semibold text-black"
+          class=" w-full text-[20px] md:text-[28px] lg:text-[32px] mb-9 md:mb-12 font-semibold text-black"
         >
           {{ journey?.title || "Your Weight Loss Journey" }}
         </h2>

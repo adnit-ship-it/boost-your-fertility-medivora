@@ -12,7 +12,7 @@
           mass: 1,
           delay: 100,
         },
-      }" class="font-defaultSerif text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
+      }" class=" text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
         {{ beforeAfter?.title || 'Before & After Medivora' }}
       </h2>
     </UiSectionContainer>

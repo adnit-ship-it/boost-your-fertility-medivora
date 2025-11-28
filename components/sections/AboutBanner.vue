@@ -26,9 +26,9 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
                     mass: 1,
                 },
             }" 
-                :src="logoUrl || '/assets/images/brand/logo.svg'" 
+                :src="'/assets/images/brand/primary-logo-1764263764776.png'" 
                 :alt="`${organizationName || 'Brand'} Logo`"
-                class="w-auto h-[32px] lg:h-[64px] object-cover" />
+                class="w-auto h-[32px] lg:h-[151px] object-cover" />
             <div class="w-full flex flex-col md:flex-row gap-8 lg:gap-20 items-center mt-6">
                 <div class="flex-1 h-full flex flex-col gap-2 lg:gap-6">
                     <h1 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
@@ -42,7 +42,7 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
                             mass: 1,
                             delay: 50,
                         },
-                    }" class="font-semibold font-defaultSerif text-[32px] lg:text-[48px] text-accentColor1 mb-2 lg:mb-4">
+                    }" class="font-semibold  text-[32px] lg:text-[48px] text-accentColor1 mb-2 lg:mb-4">
                         {{ banner?.title || 'About Us' }}
                     </h1>
                     <h2 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{

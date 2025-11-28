@@ -13,7 +13,7 @@
           mass: 1,
         },
       }" v-if="showTitle"
-        class="pb-[24px] font-defaultSerif text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
+        class="pb-[24px]  text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
         {{ discover?.title || 'Discover Our Products' }}
       </h2>
     </UiSectionContainer>

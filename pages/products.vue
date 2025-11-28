@@ -26,7 +26,7 @@
           mass: 1,
           delay: 25,
         },
-      }" class="text-[32px] md:text-[48px] font-semibold font-defaultSerif mt-2 md:mt-4 lg:mt-8">
+      }" class="text-[32px] md:text-[48px] font-semibold  mt-2 md:mt-4 lg:mt-8">
         {{ productsPage?.title || 'Explore Our Products' }}
       </h1>
       <p v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{

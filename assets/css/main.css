@@ -5,14 +5,6 @@
 
 /* Font Face Declarations */
 @font-face {
-  font-family: 'Quicksand';
-  src: url('~/assets/fonts/Quicksand-VariableFont_wght.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'DMSerifText-Regular';
   src: url('~/assets/fonts/DMSerifText-Regular.woff2') format('woff2');
   font-weight: 400;
@@ -23,6 +15,6 @@
 /* Custom styles */
 @layer base {
   html {
-    font-family: "Quicksand", "Inter", sans-serif;
+    font-family: "Lato", sans-serif;
   }
 }

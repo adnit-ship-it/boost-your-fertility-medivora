@@ -22,7 +22,7 @@
           mass: 1,
         },
       }"
-        :src="heroMedia?.foreground?.src || '/assets/images/brand/hero-img.png'"
+        :src="'/assets/images/brand/hero-img.png'"
         :alt="heroMedia?.foreground?.alt || 'Hand holding vial'"
         class="h-full w-auto object-contain"
       />
@@ -46,7 +46,7 @@
               mass: 1,
             },
           }" 
-            :src="logoUrl || heroMedia?.logo?.src || '/assets/images/brand/logo.svg'"
+            :src="'/assets/images/brand/hero-logo-1764337361429.png'"
             :style="logoHeightStyle"
             class="w-full object-cover" 
             :alt="heroMedia?.logo?.alt || `${organizationName || 'Brand'} Logo`" 
@@ -64,11 +64,11 @@
             mass: 1,
             delay: 50,
           },
-        }" class="text-2xl md:text-3xl lg:text-[48px] font-bold text-accentColor1 font-defaultSerif">
+        }" class="text-2xl md:text-3xl lg:text-[48px] font-bold text-accentColor1 ">
           {{ hero?.heading || 'Lose weight with GLP-1 medications.' }}
         </h1>
 
-        <h2 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
+        <!-- <h2 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
           opacity: 1,
           y: 0,
           transition: {
@@ -81,7 +81,7 @@
           },
         }" class="text-lg md:text-xl lg:text-[34px] text-accentColor1">
           {{ hero?.subheading || 'Start your journey with us today!' }}
-        </h2>
+        </h2> -->
         
         <!-- Bullet Points -->
         <ul class="space-y-3">
@@ -127,7 +127,7 @@
           },
         }" class="flex flex-col justify-end h-[50px] mt-7 lg:mt-5">
           <NuxtLink to="/consultation">
-            <UiButton :width="buttonWidth" :height="buttonHeight" :font-size="buttonFontSize" ghost>
+            <UiButton :width="buttonWidth" :height="buttonHeight" :font-size="buttonFontSize" ghost class="bg-accentColor1 text-white" text-color="text-white">
               {{ hero?.ctaButton || 'Take the Assessment' }}
             </UiButton>
           </NuxtLink>

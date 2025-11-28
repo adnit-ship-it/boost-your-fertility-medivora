@@ -13,7 +13,7 @@
           delay: 100,
         },
       }"
-        class="pb-[24px] font-defaultSerif text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black text-left">
+        class="pb-[24px]  text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black text-left">
         {{ trustedBy?.title || 'Trusted By' }}
       </h2>
     </UiSectionContainer>

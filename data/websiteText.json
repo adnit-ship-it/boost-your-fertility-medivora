@@ -34,7 +34,7 @@
           "alt": "Abstract orange gradient background"
         },
         "foreground": {
-          "src": "/assets/images/brand/hero-img.png",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Hand holding a GLP-1 medication vial",
           "heights": {
             "mobile": "222px",
@@ -448,7 +448,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/primary-logo-1764263764776.png",
+          "src": "/public/assets/images/brand/primary-logo-1764263764776.png",
           "alt": "Medivora primary logo",
           "height": {
             "mobile": "24px",

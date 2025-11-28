@@ -63,7 +63,7 @@ const getPageLayout = computed(() => {
 });
 
 const footerLogo = computed(() => getPageLayout.value?.footer?.logo);
-const footerLogoSrc = computed(() => footerLogo.value?.src || "/assets/images/brand/logo-alt.svg");
+const footerLogoSrc = computed(() => footerLogo.value?.src || "/assets/images/brand/primary-logo-1764263764776.png");
 const footerLogoAlt = computed(() => footerLogo.value?.alt || common.value?.accessibility?.brandLogo || "Brand logo");
 
 // Mobile detection
