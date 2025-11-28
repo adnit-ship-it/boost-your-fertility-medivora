@@ -111,7 +111,7 @@
                     </h3>
                     <div class="h-0.5 w-10 bg-accentColor1 mt-0"></div>
                     <p class="font-medium mt-4 tracking-tight w-full text-left lg:text-center">
-                        {{ priority?.support?.description || 'Medivora provides 24/7 access to a dedicated team of specialists, ensuring you have the support you need around the clock. With unlimited appointments, messaging and support, you can confidently reach out for guidance, ask questions, or address concerns at any time.' }}
+                        {{ priority?.support?.description }}
                     </p>
                 </div>
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
@@ -132,7 +132,7 @@
                     </h3>
                     <div class="h-0.5 w-10 bg-accentColor1 mt-0"></div>
                     <p class="font-medium mt-4 tracking-tight w-full text-left lg:text-center">
-                        {{ priority?.providers?.description || 'Medivora physicians are here to guide you every step of the way, bringing both their expertise and genuine care to keep you supported.' }}
+                        {{ priority?.providers?.description }}
                     </p>
                     <div class="flex flex-row gap-4 w-full justify-start lg:justify-center items-center mt-2">
                         <img :src="certificationIcon?.src || '/assets/images/checkmark-star.svg'"

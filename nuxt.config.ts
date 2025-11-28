@@ -40,7 +40,7 @@ export default defineNuxtConfig({
       isProduction,
 
       // Form configuration (fallback - actual title comes from websiteText.json)
-      formTitle: "Medivora Intake Form",
+      formTitle: "Boost Your Fertility Intake Form",
       formDescription: "Patient Intake Form for GLP-1 Program",
 
       // Client-side API configuration (safe to expose)

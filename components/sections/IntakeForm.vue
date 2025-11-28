@@ -71,7 +71,7 @@ const intakeFields = computed(() => {
     }));
 });
 const intakeHighlightLines = computed(() => {
-    const highlight = intakeForm.value?.highlight || "fast and easy with Medivora";
+    const highlight = intakeForm.value?.highlight ;
     return highlight.split("\n");
 });
 

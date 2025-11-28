@@ -4,7 +4,7 @@ export const reviews: Review[] = [
   {
     name: "Jamie L.",
     stars: 5,
-    review: "I feel so much more confident in my body thanks to Medivora.",
+    review: "I feel so much more confident in my body thanks to Boost Your Fertility.",
   },
   {
     name: "Sarah M.",
@@ -14,7 +14,7 @@ export const reviews: Review[] = [
   {
     name: "Michael R.",
     stars: 5,
-    review: "Medivora changed my life. I'm down 30 pounds and feeling amazing.",
+    review: "Boost Your Fertility changed my life. I'm down 30 pounds and feeling amazing.",
   },
   {
     name: "Emily T.",
@@ -49,7 +49,7 @@ export const reviews: Review[] = [
   {
     name: "Amanda F.",
     stars: 5,
-    review: "I can't believe how much my life has changed. Thank you Medivora!",
+    review: "I can't believe how much my life has changed. Thank you Boost Your Fertility!",
   },
   {
     name: "Jessica R.",

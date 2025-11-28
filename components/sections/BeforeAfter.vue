@@ -13,7 +13,7 @@
           delay: 100,
         },
       }" class=" text-[20px] md:text-[28px] lg:text-[32px] font-semibold text-black md:text-left">
-        {{ beforeAfter?.title || 'Before & After Medivora' }}
+        {{ beforeAfter?.title }}
       </h2>
     </UiSectionContainer>
 

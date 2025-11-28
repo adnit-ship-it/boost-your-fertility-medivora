@@ -71,7 +71,7 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
                             delay: 150,
                         },
                     }" class="text-[24px] lg:text-[34px] font-light">
-                        {{ banner?.description || 'Medivora works to change the game in the health and wellness space allowing for certified medical care, made simple and effective.' }}
+                        {{ banner?.description}}
                     </p>
                 </div>
                 <div class="w-[240px] lg:w-[384px] h-full">

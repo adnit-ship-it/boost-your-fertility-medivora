@@ -357,7 +357,7 @@ export const useSiteTextStore = defineStore('siteText', () => {
   const getContactText = () => siteText.value?.contact || null
   const getCommonText = () => siteText.value?.common || null
   const getIconRegistry = () => siteText.value?.iconRegistry || {}
-  const getPageTitle = () => siteText.value?.common?.pageTitle || "Medivora"
+  const getPageTitle = () => siteText.value?.common?.pageTitle || "Boost Your Fertility"
 
   /**
    * Gets layout heights for a specific route.
