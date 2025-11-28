@@ -460,7 +460,7 @@
       "footer": {
         "height": {
           "mobile": "64px",
-          "desktop": "80px"
+          "desktop": "85px"
         },
         "logo": {
           "src": "/assets/images/brand/secondary-logo-1764263769378.png",
@@ -534,7 +534,7 @@
       "footer": {
         "height": {
           "mobile": "64px",
-          "desktop": "80px"
+          "desktop": "85px"
         },
         "logo": {
           "src": "/assets/images/brand/logo-alt.svg",
@@ -577,7 +577,7 @@
       "footer": {
         "height": {
           "mobile": "64px",
-          "desktop": "80px"
+          "desktop": "85px"
         },
         "logo": {
           "src": "/assets/images/brand/logo-alt.svg",
@@ -610,7 +610,7 @@
       "footer": {
         "height": {
           "mobile": "64px",
-          "desktop": "80px"
+          "desktop": "85px"
         },
         "logo": {
           "src": "/assets/images/brand/logo-alt.svg",
