@@ -157,6 +157,7 @@ interface HomeSection {
 interface AboutSection {
   banner: AboutBannerSection
   priority: AboutPrioritySection
+  journey?: HomeJourneySection
   layout?: LayoutHeights
 }
 

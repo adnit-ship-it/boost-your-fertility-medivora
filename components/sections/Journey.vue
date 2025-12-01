@@ -66,12 +66,17 @@
               class="h-[108px] md:h-[152px] w-[1px] md:w-[2px] bg-[#DBD9D9]"
             ></div>
             <div
+              v-if="journeyCards.length > 4"
               :class="[
                 'h-2 w-2 md:h-3 md:w-3 rounded-full transition-all duration-300',
                 progress >= (dotThresholds?.[4] ?? 0) ? 'border-0' : 'border-[#DBD9D9] border md:border-2',
               ]"
               :style="progress >= (dotThresholds?.[4] ?? 0) ? { backgroundColor: progressLineColor } : {}"
             />
+            <div
+              v-if="journeyCards.length > 4"
+              class="h-[108px] md:h-[152px] w-[1px] md:w-[2px] bg-[#DBD9D9]"
+            ></div>
           </div>
           <div
             class="w-full flex flex-col lg:flex-row gap-x-6 gap-y-7 pl-4 lg:gap-y-24 flex-wrap justify-center items-center journey-desktop-bg lg:bg-no-repeat lg:bg-[28px_152px] lg:bg-[length:94%_auto]"
@@ -98,7 +103,6 @@
               :img-alt="card.imgAlt"
               :title="card.title"
               :subtext="card.subtext"
-              :is-active="index === 0"
               :isActive="card.isActive"
               :icon-color="card.iconColor"
             />
@@ -115,8 +119,20 @@ import { useSiteTextStore } from "~/stores/siteText";
 
 const siteTextStore = useSiteTextStore();
 
-// Destructure site text sections
-const journey = computed(() => siteTextStore.getHomeText()?.journey);
+// Props to determine which page we're on
+const props = withDefaults(defineProps<{
+  page?: 'home' | 'about'
+}>(), {
+  page: 'home'
+});
+
+// Destructure site text sections - use about journey if on about page
+const journey = computed(() => {
+  if (props.page === 'about') {
+    return siteTextStore.getAboutText()?.journey;
+  }
+  return siteTextStore.getHomeText()?.journey;
+});
 const shouldShowJourney = computed(() => journey.value?.show ?? true);
 const defaultProgressLine = "/assets/images/progress-line.svg";
 const progressLineColor = computed(() => journey.value?.media?.progressLine?.color || "#A75809");
@@ -178,6 +194,7 @@ const journeyCards = ref<
     title: string;
     subtext: string;
     isActive: boolean;
+    iconColor?: string;
   }>
 >([]);
 
@@ -188,7 +205,7 @@ watch(
       newJourney?.steps && newJourney.steps.length > 0
         ? newJourney.steps
         : defaultJourneySteps;
-    journeyCards.value = steps.map((step, index) => ({
+    journeyCards.value = steps.map((step: any, index: number) => ({
       img: step.icon?.src || "",
       imgAlt: step.icon?.alt || step.title,
       title: step.title,
@@ -202,11 +219,26 @@ watch(
 
 const progressHeight = ref(0);
 const progress = ref(0);
-const sectionRef = ref(null);
-const dotThresholds = [0, 0.25, 0.48, 0.71, 0.93]; // Progress thresholds for each dot
+const sectionRef = ref<HTMLElement | null>(null);
+// Dynamic thresholds based on number of steps
+const getDotThresholds = (numSteps: number) => {
+  if (numSteps === 4) {
+    return [0, 0.33, 0.66, 1.0];
+  }
+  return [0, 0.25, 0.48, 0.71, 0.93]; // Default 5 steps
+};
+
+const dotThresholds = computed(() => getDotThresholds(journeyCards.value.length));
 
 // Tablet-specific values (768px - 1076px)
-const tabletDotThresholds = [0, 0.2, 0.4, 0.6, 0.8]; // Adjusted thresholds for tablet
+const getTabletDotThresholds = (numSteps: number) => {
+  if (numSteps === 4) {
+    return [0, 0.33, 0.66, 1.0];
+  }
+  return [0, 0.2, 0.4, 0.6, 0.8]; // Default 5 steps
+};
+
+const tabletDotThresholds = computed(() => getTabletDotThresholds(journeyCards.value.length));
 const tabletProgressHeight = 640; // Tablet progress line height
 const mobileProgressHeight = 456; // Mobile progress line height
 
@@ -235,7 +267,7 @@ const updateProgress = () => {
 
     // Use different thresholds based on screen size
     const currentThresholds =
-      window.innerWidth >= 768 ? tabletDotThresholds : dotThresholds;
+      window.innerWidth >= 768 ? tabletDotThresholds.value : dotThresholds.value;
     const currentProgressHeight =
       window.innerWidth >= 768 ? tabletProgressHeight : mobileProgressHeight;
 
@@ -243,7 +275,7 @@ const updateProgress = () => {
     journeyCards.value.forEach((card, index) => {
       if (index === 0) return; // First card always active
 
-      const threshold = currentThresholds[index];
+      const threshold = currentThresholds[index] ?? 0;
       const wasActive = card.isActive;
       const isNowActive = progress.value >= threshold;
 

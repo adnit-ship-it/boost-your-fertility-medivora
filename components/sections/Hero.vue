@@ -76,10 +76,10 @@
             delay: 50,
           },
         }" class="text-2xl md:text-3xl lg:text-[48px] font-bold text-black ">
-          {{ hero?.heading || 'Lose weight with GLP-1 medications.' }}
+          {{ hero?.heading }}
         </h1>
 
-        <!-- <h2 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
+        <h2 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
           opacity: 1,
           y: 0,
           transition: {
@@ -90,9 +90,9 @@
             mass: 1,
             delay: 100,
           },
-        }" class="text-lg md:text-xl lg:text-[34px] text-accentColor1">
-          {{ hero?.subheading || 'Start your journey with us today!' }}
-        </h2> -->
+        }" class="text-lg md:text-xl lg:text-[34px] text-black">
+          {{ hero?.subheading  }}
+        </h2>
         
         <!-- Bullet Points -->
         <ul class="space-y-3">

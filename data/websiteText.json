@@ -9,7 +9,7 @@
     "hero": {
       "show": true,
       "heading": "Boost Your Fertility ",
-      "subheading": "Boost Your Fertility ",
+      "subheading": "You have a 90% Chance to Overcome Infertility",
       "bulletPoints": [
         {
           "text": "Infertility Education",
@@ -265,65 +265,53 @@
     },
     "journey": {
       "show": true,
-      "title": "Your Weight Loss Journey",
+      "title": "Your Journey to Overcome Infertility",
       "steps": [
         {
-          "title": "Case Created",
+          "title": "Virtual Advocate Consult",
           "subtext": [
-            "Fill out the form and get excited!"
+            "Meet your advocate from beginning to baby. Draft a budget."
           ],
           "icon": {
             "src": "/assets/images/case-created.svg",
-            "alt": "Case created icon",
-            "type": "case-created",
+            "alt": "Virtual Advocate Consult icon",
+            "type": "virtual-advocate",
             "color": "#A75809"
           }
         },
         {
-          "title": "Virtual Consult",
+          "title": "Virtual Doctor Consult",
           "subtext": [
-            "Get matched and meet with a provider"
+            "Get matched and meet with a Provider."
           ],
           "icon": {
             "src": "/assets/images/virtual-consult.svg",
-            "alt": "Virtual consult icon",
+            "alt": "Virtual Doctor Consult icon",
             "type": "virtual-consult",
             "color": "#A75809"
           }
         },
         {
-          "title": "Patient Approved",
+          "title": "Treatment Pathway",
           "subtext": [
-            "Receive customer service support along the way"
-          ],
-          "icon": {
-            "src": "/assets/images/patient-approved.svg",
-            "alt": "Patient approved icon",
-            "type": "patient-approved",
-            "color": "#A75809"
-          }
-        },
-        {
-          "title": "Prescription Sent",
-          "subtext": [
-            "Fast and free shipping and delivery"
+            "Identify the best treatment path and Provider."
           ],
           "icon": {
             "src": "/assets/images/prescription.svg",
-            "alt": "Prescription sent icon",
-            "type": "prescription",
+            "alt": "Treatment Pathway icon",
+            "type": "treatment-pathway",
             "color": "#A75809"
           }
         },
         {
-          "title": "Case Closed",
+          "title": "Treatment Monitoring",
           "subtext": [
-            "Start seeing results! Look into other products"
+            "Keeping you on track until you get to Baby."
           ],
           "icon": {
-            "src": "/assets/images/case-closed.svg",
-            "alt": "Case closed icon",
-            "type": "case-closed",
+            "src": "/assets/images/patient-approved.svg",
+            "alt": "Treatment Monitoring icon",
+            "type": "treatment-monitoring",
             "color": "#A75809"
           }
         }
@@ -508,12 +496,74 @@
       },
       "media": {
         "featureIcon": {
-          "src": "/assets/images/checkmark-star-brown.svg",
+          "src": "/assets/images/checkmark-star.svg",
           "alt": "Feature checkmark icon"
         },
         "certificationIcon": {
           "src": "/assets/images/checkmark-star.svg",
           "alt": "Certification checkmark icon"
+        }
+      }
+    },
+    "journey": {
+      "show": true,
+      "title": "Your Journey to Overcome Infertility",
+      "steps": [
+        {
+          "title": "Virtual Advocate Consult",
+          "subtext": [
+            "Meet your advocate from beginning to baby. Draft a budget."
+          ],
+          "icon": {
+            "src": "/assets/images/case-created.svg",
+            "alt": "Virtual Advocate Consult icon",
+            "type": "virtual-advocate",
+            "color": "#A75809"
+          }
+        },
+        {
+          "title": "Virtual Doctor Consult",
+          "subtext": [
+            "Get matched and meet with a Provider."
+          ],
+          "icon": {
+            "src": "/assets/images/virtual-consult.svg",
+            "alt": "Virtual Doctor Consult icon",
+            "type": "virtual-consult",
+            "color": "#A75809"
+          }
+        },
+        {
+          "title": "Treatment Pathway",
+          "subtext": [
+            "Identify the best treatment path and Provider."
+          ],
+          "icon": {
+            "src": "/assets/images/prescription.svg",
+            "alt": "Treatment Pathway icon",
+            "type": "treatment-pathway",
+            "color": "#A75809"
+          }
+        },
+        {
+          "title": "Treatment Monitoring",
+          "subtext": [
+            "Keeping you on track until you get to Baby."
+          ],
+          "icon": {
+            "src": "/assets/images/patient-approved.svg",
+            "alt": "Treatment Monitoring icon",
+            "type": "treatment-monitoring",
+            "color": "#A75809"
+          }
+        }
+      ],
+      "ctaButton": "Start Today!",
+      "media": {
+        "progressLine": {
+          "src": "/assets/images/progress-line.svg",
+          "alt": "Journey progress timeline illustration",
+          "color": "#A75809"
         }
       }
     },

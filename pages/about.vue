@@ -3,6 +3,7 @@
     <SectionsAboutBanner />
     <SectionsTrustedBy />
     <SectionsAboutPriority />
+    <SectionsJourney page="about" />
   </div>
 </template>
 
