@@ -1,9 +1,9 @@
 <template>
   <UiSectionWrapper v-if="shouldShowCTA" class="py-20 relative bg-accentColor2 text-bodyColor">
     <UiSectionContainer class="flex md:flex-row-reverse pb-8 md:pb-0">
-      <div class="absolute md:relative bottom-0 right-0 z-20 pb-4 md:pb-0 pr-2 md:pr-0 md:h-full" :style="productHeightStyle">
+      <div class="absolute md:relative bottom-0 right-0 z-20 pb-4 md:pb-0 pr-2 md:pr-8 md:h-full" :style="productHeightStyle">
         <img :src="cta?.media?.product?.src || '/assets/images/products.png'" :alt="cta?.media?.product?.alt || 'cta image'"
-          class="h-full w-full object-contain scale-100 md:scale-125" />
+          class="h-full w-full object-contain scale-100 md:scale-90 max-w-[300px] md:max-w-[400px]" />
       </div>
 
       <div class="relative z-30 w-full h-full">

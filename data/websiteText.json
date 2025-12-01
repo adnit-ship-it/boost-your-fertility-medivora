@@ -327,38 +327,38 @@
     },
     "cta": {
       "show": true,
-      "title": "Real Results",
-      "subtitle": "See why Boost Your Fertility is the #1 choice for GLP-1 Medications",
+      "title": "Save Tens of Thousands",
+      "subtitle": "Understand the myths of infertility. It doesn't have to cost $100,000 to start your family.",
       "stats": {
-        "patients": "1000+ Patients",
-        "worldwideCare": "Worldwide Care"
+        "patients": "Pay < $10k",
+        "worldwideCare": "90% Success Chance"
       },
       "features": [
         {
-          "text": "No Hidden Fees",
+          "text": "IVF may not be your first choice",
           "iconType": "checkmark-star",
           "iconColor": "#AA992C"
         },
         {
-          "text": "Free, Expedited Delivery",
+          "text": "Free & Natural treatments available",
           "iconType": "checkmark-star",
           "iconColor": "#AA992C"
         },
         {
-          "text": "Doctor-led Plans & Coaching",
+          "text": "Low-cost treatment options",
           "iconType": "checkmark-star",
           "iconColor": "#AA992C"
         },
         {
-          "text": "Money Back Guarantee",
+          "text": "Expert Advocates & Providers",
           "iconType": "checkmark-star",
           "iconColor": "#AA992C"
         }
       ],
       "media": {
         "product": {
-          "src": "/assets/images/products.png",
-          "alt": "Assortment of Boost Your Fertility products",
+          "src": "/assets/images/couple-with-baby.jpg",
+          "alt": "Couple with baby - happy family",
           "heights": {
             "mobile": "222px",
             "desktop": "auto"
