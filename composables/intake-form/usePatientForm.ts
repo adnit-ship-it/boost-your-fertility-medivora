@@ -12,8 +12,8 @@ import type {
 } from "~/types/intake-form/form";
 // We import the quiz configuration instead of just form steps
 import {
-  glp1WeightLossQuiz,
   getProgressStepForFormStep,
+  getQuizById,
 } from "~/data/intake-form/quizConfigs";
 // Import the text interpolation utility
 import { interpolateFormStep } from "~/utils/intake-form/textInterpolation";
@@ -38,10 +38,10 @@ export function usePatientForm(
   // Handle both reactive quiz config and string quiz ID
   const quizConfig = computed(() => {
     if (typeof quizConfigRef === 'string') {
-      // Fallback to hardcoded quiz if string is provided
-      return glp1WeightLossQuiz;
+      // Get quiz by ID if string is provided
+      return getQuizById(quizConfigRef) || null;
     }
-    return quizConfigRef.value || glp1WeightLossQuiz;
+    return quizConfigRef.value || null;
   });
 
   // --- PERSISTENCE ---
@@ -52,10 +52,10 @@ export function usePatientForm(
     clearLocalStorage,
     lastCompletedStep,
     isStepComplete: isStepCompletePersistence,
-  } = useFormPersistence(() => quizConfig.value.id);
+  } = useFormPersistence(() => quizConfig.value?.id || '');
 
   // --- FORM DATA ---
-  const allStepsMaster = computed(() => quizConfig.value.steps);
+  const allStepsMaster = computed(() => quizConfig.value?.steps || []);
 
   // --- INITIALIZATION ---
   // Create default form answers
@@ -97,9 +97,11 @@ export function usePatientForm(
 
   if (process.client) {
     watch(
-      () => quizConfig.value.id,
+      () => quizConfig.value?.id,
       () => {
-        restoreClientState(allStepsMaster.value, formAnswers, currentStepIndex);
+        if (quizConfig.value) {
+          restoreClientState(allStepsMaster.value, formAnswers, currentStepIndex);
+        }
       },
     );
   }
@@ -196,7 +198,7 @@ export function usePatientForm(
 
       try {
         // Store quiz-specific completion state and form data
-        if (process.client) {
+        if (process.client && quizConfig.value) {
           // Store the completed form answers
           localStorage.setItem(`quiz_${quizConfig.value.id}_completed_data`, JSON.stringify(formAnswers));
           
@@ -236,6 +238,8 @@ export function usePatientForm(
       if (!currentId) return;
 
       // Use the quiz configuration to determine progress step
+      if (!quizConfig.value) return;
+      
       const progressStepId = getProgressStepForFormStep(
         quizConfig.value,
         currentId,
@@ -243,6 +247,8 @@ export function usePatientForm(
       if (!progressStepId) return;
 
       // Find the index of the progress step in the quiz configuration
+      if (!quizConfig.value.progressSteps) return;
+      
       const progressIndex = quizConfig.value.progressSteps.findIndex(
         (step) => step.id === progressStepId,
       );
@@ -284,6 +290,10 @@ export function usePatientForm(
   watch(
     quizConfig,
     (newQuizConfig) => {
+      if (!newQuizConfig || !newQuizConfig.progressSteps) {
+        progressSteps.value = [];
+        return;
+      }
       progressSteps.value = newQuizConfig.progressSteps.map((step) => ({
         name: step.name,
         description: step.description,
@@ -298,10 +308,10 @@ export function usePatientForm(
     clearLocalStorage();
     
     // Clear quiz-specific completion flags
-    if (process.client) {
-    localStorage.removeItem(`quiz_${quizConfig.value.id}_completed`);
-    localStorage.removeItem(`quiz_${quizConfig.value.id}_completed_data`);
-    localStorage.removeItem(`quiz_${quizConfig.value.id}_completed_at`);
+    if (process.client && quizConfig.value) {
+      localStorage.removeItem(`quiz_${quizConfig.value.id}_completed`);
+      localStorage.removeItem(`quiz_${quizConfig.value.id}_completed_data`);
+      localStorage.removeItem(`quiz_${quizConfig.value.id}_completed_at`);
     }
     
     // Reset form answers to defaults
@@ -314,6 +324,8 @@ export function usePatientForm(
 
   // --- QUIZ CONFIGURATION GETTERS ---
   const getCurrentProgressStep = computed(() => {
+    if (!quizConfig.value || !quizConfig.value.progressSteps) return null;
+    
     const currentId = visibleSteps.value[currentStepIndex.value]?.id;
     if (!currentId) return null;
 
@@ -326,7 +338,7 @@ export function usePatientForm(
     );
   });
 
-  const getQuizMetadata = computed(() => quizConfig.value.metadata);
+  const getQuizMetadata = computed(() => quizConfig.value?.metadata || null);
 
   // --- QUIZ COMPLETION UTILITIES ---
   // Function to check if a specific quiz has been completed
@@ -386,6 +398,6 @@ export function usePatientForm(
     getCompletedQuizIds,
     getCompletedQuizData,
     getQuizCompletionTimestamp,
-    quizId: computed(() => quizConfig.value.id),
+    quizId: computed(() => quizConfig.value?.id || ''),
   };
 }

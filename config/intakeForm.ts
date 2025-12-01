@@ -6,7 +6,7 @@ export interface IntakeFormConfig {
 }
 
 export const intakeFormConfig: IntakeFormConfig = {
-  defaultQuizId: "glp1-weight-loss",
-  defaultProductCategory: "weight-loss",
+  defaultQuizId: "fertility-unified",
+  defaultProductCategory: "fertility",
 };
 

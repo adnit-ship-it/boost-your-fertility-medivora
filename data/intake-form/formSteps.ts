@@ -2851,3 +2851,662 @@ export const contactFormSteps: FormStep[] = [
     ],
   },
 ];
+
+// ============================================
+// FERTILITY QUESTIONNAIRE STEPS
+// ============================================
+
+// Gender Selection Step (entry point for fertility forms)
+export const genderSelectionStep: FormStep[] = [
+  {
+    id: "genderSelection",
+    title: "To get started, please select your gender",
+    heading1: "We'll personalize your fertility questionnaire based on your selection",
+    questions: [
+      {
+        id: "genderSelection",
+        type: "SINGLESELECT",
+        options: ["Male", "Female"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+];
+
+// Helper function to combine render conditions
+const combineRenderConditions = (
+  existingCondition: ((answers: any) => boolean) | undefined,
+  newCondition: (answers: any) => boolean
+): (answers: any) => boolean => {
+  if (!existingCondition) {
+    return newCondition;
+  }
+  return (answers: any) => existingCondition(answers) && newCondition(answers);
+};
+
+// Men's Fertility Questionnaire Steps
+export const fertilityMenSteps: FormStep[] = [
+  // Question 1: How long trying to get pregnant
+  {
+    id: "tryingDurationMen",
+    title: "How long have you and your partner been trying to get pregnant?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "tryingDurationMen",
+        question: "Duration",
+        type: "number",
+        required: true,
+        placeholder: "Enter number of months",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 2: Sperm Health test
+  {
+    id: "spermHealthTest",
+    title: "Have you had a \"Sperm Health\" test?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "spermHealthTest",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 3: Male infertility family history
+  {
+    id: "maleInfertilityFamilyHistory",
+    title: "Is there any known male infertility history in your family?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "maleInfertilityFamilyHistory",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 4: Partner miscarriage
+  {
+    id: "partnerMiscarriage",
+    title: "Has your partner ever had a miscarriage?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerMiscarriage",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 5: Partner miscarriage count (conditional)
+  {
+    id: "partnerMiscarriageCount",
+    title: "If so, how many miscarriages?",
+    renderCondition: (answers) => answers.genderSelection === "Male" && answers.partnerMiscarriage === "Yes",
+    questions: [
+      {
+        id: "partnerMiscarriageCount",
+        type: "number",
+        required: true,
+        placeholder: "Enter number of miscarriages",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 6: Your age
+  {
+    id: "ageMen",
+    title: "What is your age?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "ageMen",
+        type: "number",
+        required: true,
+        placeholder: "Enter your age",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 7: Partner age
+  {
+    id: "partnerAge",
+    title: "What is your partner's age?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerAge",
+        type: "number",
+        required: true,
+        placeholder: "Enter partner's age",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 8: Partner menstrual cycle
+  {
+    id: "partnerMenstrualCycle",
+    title: "Does your partner have a normal menstruation cycle?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerMenstrualCycle",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 9: Partner off birth control
+  {
+    id: "partnerOffBirthControl",
+    title: "How long has your partner been off birth control?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerOffBirthControl",
+        type: "number",
+        required: true,
+        placeholder: "Enter number of months",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 10: Partner fertility testing
+  {
+    id: "partnerFertilityTesting",
+    title: "Has your partner had any of the following fertility testing?",
+    subtext: "Select all that apply.",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerFertilityTesting",
+        type: "MULTISELECT",
+        options: [
+          "Hormone cycle test",
+          "AMH-Anti-mullerian hormone testing",
+          "None of the above",
+        ],
+        required: true,
+        apiType: "MULTISELECT",
+      },
+    ],
+  },
+  // Question 11: Partner medical conditions
+  {
+    id: "partnerMedicalConditions",
+    title: "Has your partner been diagnosed with any of the following conditions?",
+    subtext: "Select all that apply.",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerMedicalConditions",
+        type: "MULTISELECT",
+        options: [
+          "Fibroids",
+          "PCOS-Polycystic Ovary Syndrome",
+          "CAS-Congenital Adrenal Hyperplasia",
+          "STD's",
+          "HBP (High Blood Pressure)",
+          "Diabetes",
+          "None of the above",
+        ],
+        required: true,
+        apiType: "MULTISELECT",
+      },
+    ],
+  },
+  // Question 12: Do you smoke
+  {
+    id: "smokingMen",
+    title: "Do you smoke?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "smokingMen",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 13: Smoking level (conditional)
+  {
+    id: "smokingLevelMen",
+    title: "If so, would you consider yourself a light, moderate or heavy smoker?",
+    renderCondition: (answers) => answers.genderSelection === "Male" && answers.smokingMen === "Yes",
+    questions: [
+      {
+        id: "smokingLevelMen",
+        type: "SINGLESELECT",
+        options: ["Light", "Moderate", "Heavy"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 14: Partner smoking
+  {
+    id: "partnerSmoking",
+    title: "Does your partner smoke?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "partnerSmoking",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 15: Partner smoking level (conditional)
+  {
+    id: "partnerSmokingLevel",
+    title: "If so, would you consider your partner to be a light, moderate or heavy smoker?",
+    renderCondition: (answers) => answers.genderSelection === "Male" && answers.partnerSmoking === "Yes",
+    questions: [
+      {
+        id: "partnerSmokingLevel",
+        type: "SINGLESELECT",
+        options: ["Light", "Moderate", "Heavy"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 16: Groin trauma
+  {
+    id: "groinTrauma",
+    title: "Have you ever incurred any abnormally hard trauma to the groin in recent years?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "groinTrauma",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 17: Gender at birth
+  {
+    id: "genderAtBirthMen",
+    title: "What was your gender at birth?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "genderAtBirthMen",
+        type: "SINGLESELECT",
+        options: ["Male", "Female"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 18: Height and Weight (reuse existing step structure)
+  {
+    id: "heightWeightMen",
+    title: "What is your height and weight?",
+    heading1: "BMI Calculation",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    displayValue: {
+      condition: (answers: any) => answers.feetMen && answers.inchesMen && answers.weightMen,
+      calculate: (answers: any) => {
+        const heightInInches = (answers.feetMen * 12) + answers.inchesMen;
+        const heightInMeters = heightInInches * 0.0254;
+        const weightInKg = answers.weightMen * 0.453592;
+        const bmi = weightInKg / (heightInMeters * heightInMeters);
+        return bmi.toFixed(2);
+      },
+      template: "BMI: {{value}}"
+    },
+    questions: [
+      {
+        id: "feetMen",
+        question: "Feet",
+        type: "DROPDOWN",
+        required: true,
+        options: [1, 2, 3, 4, 5, 6, 7],
+        apiType: "TEXT",
+      },
+      {
+        id: "inchesMen",
+        question: "Inches",
+        type: "DROPDOWN",
+        required: true,
+        options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        apiType: "TEXT",
+      },
+      {
+        id: "weightMen",
+        question: "Weight (in lbs)",
+        type: "number",
+        required: true,
+        placeholder: "Enter your weight",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 19: Follow-up consultation preference
+  {
+    id: "followUpConsultationMen",
+    title: "Would you like a free follow up informative email or phone consult?",
+    renderCondition: (answers) => answers.genderSelection === "Male",
+    questions: [
+      {
+        id: "followUpConsultationMen",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 20: Contact info for follow-up (conditional)
+  {
+    id: "followUpContactMen",
+    title: "Please provide your email and/or phone number for follow-up",
+    renderCondition: (answers) => answers.genderSelection === "Male" && answers.followUpConsultationMen === "Yes",
+    questions: [
+      {
+        id: "followUpEmailMen",
+        question: "Email Address",
+        type: "email",
+        required: false,
+        placeholder: "you@example.com",
+        apiType: "TEXT",
+      },
+      {
+        id: "followUpPhoneMen",
+        question: "Phone Number",
+        type: "tel",
+        required: false,
+        placeholder: "123-456-7890",
+        apiType: "TEXT",
+      },
+    ],
+  },
+];
+
+// Women's Fertility Questionnaire Steps
+export const fertilityWomenSteps: FormStep[] = [
+  // Question 1: How long trying to get pregnant
+  {
+    id: "tryingDurationWomen",
+    title: "How long have you been trying to get pregnant?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "tryingDurationWomen",
+        question: "Duration",
+        type: "number",
+        required: true,
+        placeholder: "Enter number of months",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 2: Miscarriage
+  {
+    id: "miscarriageWomen",
+    title: "Have you ever had a miscarriage?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "miscarriageWomen",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 3: Miscarriage count (conditional)
+  {
+    id: "miscarriageCountWomen",
+    title: "If so, how many miscarriages?",
+    renderCondition: (answers) => answers.genderSelection === "Female" && answers.miscarriageWomen === "Yes",
+    questions: [
+      {
+        id: "miscarriageCountWomen",
+        type: "number",
+        required: true,
+        placeholder: "Enter number of miscarriages",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 4: Your age
+  {
+    id: "ageWomen",
+    title: "What is your age?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "ageWomen",
+        type: "number",
+        required: true,
+        placeholder: "Enter your age",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 5: Menstrual cycle
+  {
+    id: "menstrualCycle",
+    title: "Do you have a normal menstruation cycle?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "menstrualCycle",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 6: Off birth control
+  {
+    id: "offBirthControl",
+    title: "How long have you been off birth control?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "offBirthControl",
+        type: "number",
+        required: true,
+        placeholder: "Enter number of months",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 7: Fertility testing
+  {
+    id: "fertilityTestingWomen",
+    title: "Have you had any of the following fertility testing?",
+    subtext: "Select all that apply.",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "fertilityTestingWomen",
+        type: "MULTISELECT",
+        options: [
+          "Hormone cycle test",
+          "AMH-Anti-mullerian hormone testing",
+          "None of the above",
+        ],
+        required: true,
+        apiType: "MULTISELECT",
+      },
+    ],
+  },
+  // Question 8: Medical conditions
+  {
+    id: "medicalConditionsWomen",
+    title: "Have you been diagnosed with any of the following conditions?",
+    subtext: "Select all that apply.",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "medicalConditionsWomen",
+        type: "MULTISELECT",
+        options: [
+          "Fibroids",
+          "PCOS-Polycystic Ovary Syndrome",
+          "CAS-Congenital Adrenal Hyperplasia",
+          "STD's",
+          "HBP (High Blood Pressure)",
+          "Diabetes",
+          "None of the above",
+        ],
+        required: true,
+        apiType: "MULTISELECT",
+      },
+    ],
+  },
+  // Question 9: Do you smoke
+  {
+    id: "smokingWomen",
+    title: "Do you smoke?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "smokingWomen",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 10: Gender at birth
+  {
+    id: "genderAtBirthWomen",
+    title: "What was your gender at birth?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "genderAtBirthWomen",
+        type: "SINGLESELECT",
+        options: ["Male", "Female"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 11: Height and Weight (reuse existing step structure)
+  {
+    id: "heightWeightWomen",
+    title: "What is your height and weight?",
+    heading1: "BMI Calculation",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    displayValue: {
+      condition: (answers: any) => answers.feetWomen && answers.inchesWomen && answers.weightWomen,
+      calculate: (answers: any) => {
+        const heightInInches = (answers.feetWomen * 12) + answers.inchesWomen;
+        const heightInMeters = heightInInches * 0.0254;
+        const weightInKg = answers.weightWomen * 0.453592;
+        const bmi = weightInKg / (heightInMeters * heightInMeters);
+        return bmi.toFixed(2);
+      },
+      template: "BMI: {{value}}"
+    },
+    questions: [
+      {
+        id: "feetWomen",
+        question: "Feet",
+        type: "DROPDOWN",
+        required: true,
+        options: [1, 2, 3, 4, 5, 6, 7],
+        apiType: "TEXT",
+      },
+      {
+        id: "inchesWomen",
+        question: "Inches",
+        type: "DROPDOWN",
+        required: true,
+        options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        apiType: "TEXT",
+      },
+      {
+        id: "weightWomen",
+        question: "Weight (in lbs)",
+        type: "number",
+        required: true,
+        placeholder: "Enter your weight",
+        apiType: "TEXT",
+      },
+    ],
+  },
+  // Question 12: Follow-up consultation preference
+  {
+    id: "followUpConsultationWomen",
+    title: "Would you like a free follow up informative email or phone consult?",
+    renderCondition: (answers) => answers.genderSelection === "Female",
+    questions: [
+      {
+        id: "followUpConsultationWomen",
+        type: "SINGLESELECT",
+        options: ["Yes", "No"],
+        required: true,
+        displayAsRow: true,
+        apiType: "SINGLESELECT",
+      },
+    ],
+  },
+  // Question 13: Contact info for follow-up (conditional)
+  {
+    id: "followUpContactWomen",
+    title: "Please provide your email and/or phone number for follow-up",
+    renderCondition: (answers) => answers.genderSelection === "Female" && answers.followUpConsultationWomen === "Yes",
+    questions: [
+      {
+        id: "followUpEmailWomen",
+        question: "Email Address",
+        type: "email",
+        required: false,
+        placeholder: "you@example.com",
+        apiType: "TEXT",
+      },
+      {
+        id: "followUpPhoneWomen",
+        question: "Phone Number",
+        type: "tel",
+        required: false,
+        placeholder: "123-456-7890",
+        apiType: "TEXT",
+      },
+    ],
+  },
+];

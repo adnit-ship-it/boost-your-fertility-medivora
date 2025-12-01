@@ -1,5 +1,5 @@
 import type { QuizConfig } from "~/types/intake-form/form";
-import { allStepsMaster, contactFormSteps, nadPlusFormSteps, sermorelinSteps, vitaminB12Steps, sexualHealthSteps, glutathioneSteps, hyperpigmentationSteps, antiAgingSteps, acneSteps, hairLossSteps } from "./formSteps";
+import { allStepsMaster, contactFormSteps, nadPlusFormSteps, sermorelinSteps, vitaminB12Steps, sexualHealthSteps, glutathioneSteps, hyperpigmentationSteps, antiAgingSteps, acneSteps, hairLossSteps, fertilityMenSteps, fertilityWomenSteps, genderSelectionStep } from "./formSteps";
 
 // GLP-1 Weight Loss Intake Form Configuration
 export const glp1WeightLossQuiz: QuizConfig = {
@@ -748,8 +748,315 @@ export const hairLossQuiz: QuizConfig = {
   },
 };
 
+// Unified Fertility Quiz (includes gender selection + all steps)
+export const fertilityUnifiedQuiz: QuizConfig = {
+  id: "fertility-unified",
+  name: "Boost Your Fertility Questionnaire",
+  description: "Comprehensive fertility intake form",
+  version: "1.0.0",
+  progressSteps: [
+    {
+      id: "gender-selection",
+      name: "Get Started",
+      description: "Select your gender",
+      color: "#A75809",
+    },
+    {
+      id: "fertility-history",
+      name: "Fertility History",
+      description: "Trying duration and fertility testing",
+      color: "#A75809",
+    },
+    {
+      id: "reproductive-health",
+      name: "Reproductive Health",
+      description: "Menstrual cycle and reproductive history",
+      color: "#A75809",
+    },
+    {
+      id: "partner-information",
+      name: "Partner Information",
+      description: "Partner's fertility and medical history",
+      color: "#A75809",
+    },
+    {
+      id: "medical-history",
+      name: "Medical History",
+      description: "Medical conditions and lifestyle factors",
+      color: "#A75809",
+    },
+    {
+      id: "personal-info",
+      name: "Personal Info",
+      description: "Age, gender, height, and weight",
+      color: "#A75809",
+    },
+    {
+      id: "contact",
+      name: "Contact",
+      description: "Follow-up consultation preferences",
+      color: "#A75809",
+    },
+  ],
+  stepProgressMapping: [
+    // Gender Selection
+    { stepId: "genderSelection", progressStepId: "gender-selection" },
+    
+    // Men's steps - Fertility History
+    { stepId: "tryingDurationMen", progressStepId: "fertility-history" },
+    { stepId: "spermHealthTest", progressStepId: "fertility-history" },
+    { stepId: "maleInfertilityFamilyHistory", progressStepId: "fertility-history" },
+    { stepId: "partnerMiscarriage", progressStepId: "fertility-history" },
+    { stepId: "partnerMiscarriageCount", progressStepId: "fertility-history" },
+    
+    // Men's steps - Partner Information
+    { stepId: "partnerAge", progressStepId: "partner-information" },
+    { stepId: "partnerMenstrualCycle", progressStepId: "partner-information" },
+    { stepId: "partnerOffBirthControl", progressStepId: "partner-information" },
+    { stepId: "partnerFertilityTesting", progressStepId: "partner-information" },
+    { stepId: "partnerMedicalConditions", progressStepId: "partner-information" },
+    { stepId: "partnerSmoking", progressStepId: "partner-information" },
+    { stepId: "partnerSmokingLevel", progressStepId: "partner-information" },
+    
+    // Men's steps - Medical History
+    { stepId: "smokingMen", progressStepId: "medical-history" },
+    { stepId: "smokingLevelMen", progressStepId: "medical-history" },
+    { stepId: "groinTrauma", progressStepId: "medical-history" },
+    
+    // Men's steps - Personal Info
+    { stepId: "ageMen", progressStepId: "personal-info" },
+    { stepId: "genderAtBirthMen", progressStepId: "personal-info" },
+    { stepId: "heightWeightMen", progressStepId: "personal-info" },
+    
+    // Men's steps - Contact
+    { stepId: "followUpConsultationMen", progressStepId: "contact" },
+    { stepId: "followUpContactMen", progressStepId: "contact" },
+    
+    // Women's steps - Fertility History
+    { stepId: "tryingDurationWomen", progressStepId: "fertility-history" },
+    { stepId: "miscarriageWomen", progressStepId: "fertility-history" },
+    { stepId: "miscarriageCountWomen", progressStepId: "fertility-history" },
+    { stepId: "fertilityTestingWomen", progressStepId: "fertility-history" },
+    
+    // Women's steps - Reproductive Health
+    { stepId: "menstrualCycleWomen", progressStepId: "reproductive-health" },
+    { stepId: "birthControlOffWomen", progressStepId: "reproductive-health" },
+    { stepId: "maleSpermProviderTesting", progressStepId: "reproductive-health" },
+    
+    // Women's steps - Medical History
+    { stepId: "medicalConditionsWomen", progressStepId: "medical-history" },
+    { stepId: "smokingWomen", progressStepId: "medical-history" },
+    { stepId: "smokingLevelWomen", progressStepId: "medical-history" },
+    
+    // Women's steps - Personal Info
+    { stepId: "ageWomen", progressStepId: "personal-info" },
+    { stepId: "genderAtBirthWomen", progressStepId: "personal-info" },
+    { stepId: "heightWeightWomen", progressStepId: "personal-info" },
+    
+    // Women's steps - Contact
+    { stepId: "followUpConsultationWomen", progressStepId: "contact" },
+    { stepId: "followUpContactWomen", progressStepId: "contact" },
+    
+    // Common contact steps
+    { stepId: "dob", progressStepId: "contact" },
+    { stepId: "personalInfo", progressStepId: "contact" },
+  ],
+  steps: [
+    ...genderSelectionStep,
+    ...fertilityMenSteps,
+    ...fertilityWomenSteps,
+    ...contactFormSteps,
+  ],
+  metadata: {
+    category: "fertility",
+    estimatedTime: "10-15 minutes",
+    targetAudience: "Individuals seeking fertility consultation",
+    compliance: ["HIPAA Compliant", "Medical Intake Form"],
+  },
+};
+
+// Gender Selection Quiz (Entry point for fertility forms) - DEPRECATED, use fertilityUnifiedQuiz
+export const fertilityGenderSelectionQuiz: QuizConfig = {
+  id: "fertility-gender-selection",
+  name: "Boost Your Fertility - Gender Selection",
+  description: "Select your gender to begin your personalized fertility questionnaire",
+  version: "1.0.0",
+  progressSteps: [
+    {
+      id: "selection",
+      name: "Get Started",
+      description: "Select your gender",
+      color: "#A75809",
+    },
+  ],
+  stepProgressMapping: [
+    { stepId: "genderSelection", progressStepId: "selection" },
+  ],
+  steps: [...genderSelectionStep],
+  metadata: {
+    category: "fertility",
+    estimatedTime: "1 minute",
+    targetAudience: "Individuals seeking fertility consultation",
+    compliance: ["HIPAA Compliant", "Medical Intake Form"],
+  },
+};
+
+// Men's Fertility Questionnaire Configuration
+export const fertilityMenQuiz: QuizConfig = {
+  id: "fertility-men",
+  name: "Boost Your Fertility Questionnaire for Men",
+  description: "Comprehensive fertility intake form for men",
+  version: "1.0.0",
+  progressSteps: [
+    {
+      id: "fertility-history",
+      name: "Fertility History",
+      description: "Trying duration and fertility testing",
+      color: "#A75809",
+    },
+    {
+      id: "partner-information",
+      name: "Partner Information",
+      description: "Partner's fertility and medical history",
+      color: "#A75809",
+    },
+    {
+      id: "lifestyle",
+      name: "Lifestyle",
+      description: "Smoking habits and personal history",
+      color: "#A75809",
+    },
+    {
+      id: "personal-info",
+      name: "Personal Info",
+      description: "Age, gender, height, and weight",
+      color: "#A75809",
+    },
+    {
+      id: "contact",
+      name: "Contact",
+      description: "Follow-up consultation preferences",
+      color: "#A75809",
+    },
+  ],
+  stepProgressMapping: [
+    // Fertility History section
+    { stepId: "tryingDurationMen", progressStepId: "fertility-history" },
+    { stepId: "spermHealthTest", progressStepId: "fertility-history" },
+    { stepId: "maleInfertilityFamilyHistory", progressStepId: "fertility-history" },
+    { stepId: "partnerMiscarriage", progressStepId: "fertility-history" },
+    { stepId: "partnerMiscarriageCount", progressStepId: "fertility-history" },
+    
+    // Partner Information section
+    { stepId: "partnerAge", progressStepId: "partner-information" },
+    { stepId: "partnerMenstrualCycle", progressStepId: "partner-information" },
+    { stepId: "partnerOffBirthControl", progressStepId: "partner-information" },
+    { stepId: "partnerFertilityTesting", progressStepId: "partner-information" },
+    { stepId: "partnerMedicalConditions", progressStepId: "partner-information" },
+    { stepId: "partnerSmoking", progressStepId: "partner-information" },
+    { stepId: "partnerSmokingLevel", progressStepId: "partner-information" },
+    
+    // Lifestyle section
+    { stepId: "smokingMen", progressStepId: "lifestyle" },
+    { stepId: "smokingLevelMen", progressStepId: "lifestyle" },
+    { stepId: "groinTrauma", progressStepId: "lifestyle" },
+    
+    // Personal Info section
+    { stepId: "ageMen", progressStepId: "personal-info" },
+    { stepId: "genderAtBirthMen", progressStepId: "personal-info" },
+    { stepId: "heightWeightMen", progressStepId: "personal-info" },
+    
+    // Contact section
+    { stepId: "followUpConsultationMen", progressStepId: "contact" },
+    { stepId: "followUpContactMen", progressStepId: "contact" },
+  ],
+  steps: [...fertilityMenSteps],
+  metadata: {
+    category: "fertility",
+    estimatedTime: "10-15 minutes",
+    targetAudience: "Men seeking fertility consultation",
+    compliance: ["HIPAA Compliant", "Medical Intake Form"],
+  },
+};
+
+// Women's Fertility Questionnaire Configuration
+export const fertilityWomenQuiz: QuizConfig = {
+  id: "fertility-women",
+  name: "Boost Your Fertility Questionnaire for Women",
+  description: "Comprehensive fertility intake form for women",
+  version: "1.0.0",
+  progressSteps: [
+    {
+      id: "fertility-history",
+      name: "Fertility History",
+      description: "Trying duration, miscarriages, and fertility testing",
+      color: "#A75809",
+    },
+    {
+      id: "reproductive-health",
+      name: "Reproductive Health",
+      description: "Menstrual cycle and birth control history",
+      color: "#A75809",
+    },
+    {
+      id: "medical-history",
+      name: "Medical History",
+      description: "Medical conditions and lifestyle factors",
+      color: "#A75809",
+    },
+    {
+      id: "personal-info",
+      name: "Personal Info",
+      description: "Age, gender, height, and weight",
+      color: "#A75809",
+    },
+    {
+      id: "contact",
+      name: "Contact",
+      description: "Follow-up consultation preferences",
+      color: "#A75809",
+    },
+  ],
+  stepProgressMapping: [
+    // Fertility History section
+    { stepId: "tryingDurationWomen", progressStepId: "fertility-history" },
+    { stepId: "miscarriageWomen", progressStepId: "fertility-history" },
+    { stepId: "miscarriageCountWomen", progressStepId: "fertility-history" },
+    { stepId: "fertilityTestingWomen", progressStepId: "fertility-history" },
+    
+    // Reproductive Health section
+    { stepId: "menstrualCycle", progressStepId: "reproductive-health" },
+    { stepId: "offBirthControl", progressStepId: "reproductive-health" },
+    
+    // Medical History section
+    { stepId: "medicalConditionsWomen", progressStepId: "medical-history" },
+    { stepId: "smokingWomen", progressStepId: "medical-history" },
+    
+    // Personal Info section
+    { stepId: "ageWomen", progressStepId: "personal-info" },
+    { stepId: "genderAtBirthWomen", progressStepId: "personal-info" },
+    { stepId: "heightWeightWomen", progressStepId: "personal-info" },
+    
+    // Contact section
+    { stepId: "followUpConsultationWomen", progressStepId: "contact" },
+    { stepId: "followUpContactWomen", progressStepId: "contact" },
+  ],
+  steps: [...fertilityWomenSteps],
+  metadata: {
+    category: "fertility",
+    estimatedTime: "8-12 minutes",
+    targetAudience: "Women seeking fertility consultation",
+    compliance: ["HIPAA Compliant", "Medical Intake Form"],
+  },
+};
+
 // Export all quiz configurations
 export const availableQuizzes: QuizConfig[] = [
+  fertilityUnifiedQuiz,
+  fertilityGenderSelectionQuiz,
+  fertilityMenQuiz,
+  fertilityWomenQuiz,
+  // Legacy quizzes (kept for backward compatibility)
   glp1WeightLossQuiz,
   nadPlusQuiz,
   sermorelinQuiz,

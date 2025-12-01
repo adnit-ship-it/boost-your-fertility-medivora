@@ -58,18 +58,18 @@
       </div>
 
       <!-- Progress Tracker -->
-      <IntakeFormProgressTracker :steps="progressSteps" :currentStep="currentProgressMarker" />
+      <IntakeFormProgressTracker v-if="quizConfig" :steps="progressSteps" :currentStep="currentProgressMarker" />
 
       <!-- 1. The Header Component -->
-      <IntakeFormHeader v-if="currentStepData" :step-data="currentStepData" />
+      <IntakeFormHeader v-if="currentStepData && quizConfig" :step-data="currentStepData" />
 
       <!-- 2. The Question Renderer Component -->
-      <IntakeFormQuestionRenderer v-if="currentStepData" :step-data="currentStepData" :form-answers="formAnswers"
+      <IntakeFormQuestionRenderer v-if="currentStepData && quizConfig" :step-data="currentStepData" :form-answers="formAnswers"
         :is-loading="isLoading" class="mt-8" />
 
       <!-- 3. The Navigation Component -->
-      <IntakeFormNavigation class="mt-8" :is-last-step="isLastQuestion" :is-next-disabled="!isStepComplete"
-        :is-back-disabled="currentQuestionIndex === 0" :is-loading="isLoading" @next="nextStep" @back="prevStep" />
+      <IntakeFormNavigation v-if="quizConfig" class="mt-8" :is-last-step="isLastQuestion" :is-next-disabled="!isStepComplete"
+        :is-back-disabled="currentQuestionIndex === 0" :is-loading="isLoading" @next="handleNextStep" @back="prevStep" />
     </div>
   </div>
 </template>
@@ -78,7 +78,7 @@
 import { ref, computed, watch } from "vue";
 import { usePatientForm } from "~/composables/intake-form/usePatientForm";
 import type { QuizConfig } from "~/types/intake-form/form";
-import { glp1WeightLossQuiz, getQuizById } from "~/data/intake-form/quizConfigs";
+import { getQuizById, fertilityMenQuiz, fertilityWomenQuiz } from "~/data/intake-form/quizConfigs";
 import { products as staticProductCatalog } from "~/data/intake-form/products";
 import { useCRMStore } from "~/stores/crmStore";
 import { getQuizByOrgAndProduct } from "~/lib/supabase/quizzes";
@@ -93,7 +93,7 @@ const quizConfig = ref<QuizConfig | null>(null);
 const isQuizLoading = ref(true);
 const quizError = ref<string | null>(null);
 
-const defaultQuizId = intakeFormConfig.defaultQuizId || glp1WeightLossQuiz.id;
+const defaultQuizId = intakeFormConfig.defaultQuizId;
 
 const findCrmProductByBundleId = (bundleId: string) => {
   return (
@@ -144,9 +144,13 @@ const loadQuizConfigurationForProduct = async () => {
     }
 
     const bundleIdFromRoute = route.query.productId as string | undefined;
+    const quizIdFromRoute = route.query.quizId as string | undefined;
     let resolvedQuizId: string | undefined;
 
-    if (bundleIdFromRoute) {
+    // Check for quizId in route first (for gender selection routing)
+    if (quizIdFromRoute) {
+      resolvedQuizId = quizIdFromRoute;
+    } else if (bundleIdFromRoute) {
       const crmProduct = findCrmProductByBundleId(bundleIdFromRoute);
       if (crmProduct?.quizId) {
         resolvedQuizId = crmProduct.quizId;
@@ -194,8 +198,8 @@ const loadQuizConfigurationForProduct = async () => {
 
     if (!resolvedQuizConfig) {
       quizError.value =
-        "Unable to load the intake form for the selected product. Showing the default form instead.";
-      resolvedQuizConfig = glp1WeightLossQuiz;
+        "Unable to load the intake form for the selected product. Please try again.";
+      resolvedQuizConfig = null;
     }
 
     quizConfig.value = resolvedQuizConfig;
@@ -203,14 +207,14 @@ const loadQuizConfigurationForProduct = async () => {
     console.error("An unexpected error occurred while loading the form.", error);
     quizError.value =
       "An unexpected error occurred while loading the form.";
-    quizConfig.value = glp1WeightLossQuiz;
+    quizConfig.value = null;
   } finally {
     isQuizLoading.value = false;
   }
 };
 
 watch(
-  () => [route.query.productId, crmStore.getProductBundles?.length],
+  () => [route.query.productId, route.query.quizId, crmStore.getProductBundles?.length],
   () => {
     loadQuizConfigurationForProduct();
   },
@@ -234,6 +238,11 @@ const {
   clearFormAndRestart,
   currentProgressMarker,
 } = usePatientForm(quizConfigForComposable);
+
+// Use normal nextStep (no special routing needed for unified quiz)
+const handleNextStep = async () => {
+  await nextStep();
+};
 
 // Get progress steps from the quiz config when available
 const progressSteps = computed(() => {
