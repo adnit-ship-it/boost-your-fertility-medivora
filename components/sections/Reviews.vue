@@ -1,5 +1,5 @@
 <template>
-  <UiSectionWrapper v-if="shouldShowReviews" class="flex-col py-20">
+  <UiSectionWrapper v-if="shouldShowReviews" class="flex-col pb-20">
     <UiSectionContainer>
       <h2 v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
         opacity: 1,

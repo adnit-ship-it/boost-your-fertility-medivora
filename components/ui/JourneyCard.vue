@@ -11,10 +11,10 @@
       :style="iconColorStyle"
       class="h-8 w-8 md:w-[48px] md:h-[48px] mt-2 lg:mt-0 lg:w-[60px] lg:h-[60px]" />
     <div class="flex justify-center flex-col gap-0.5 lg:gap-5">
-      <p class="text-[16px] md:text-[20px] font-semibold text-left lg:text-center">
+      <p class="text-[14px] md:text-[20px] font-semibold text-left lg:text-center">
         {{ title }}
       </p>
-      <p class="text-black text-[14px] md:text-[20px] font-medium text-left lg:text-center">
+      <p class="text-black text-[12px] md:text-[20px] font-medium text-left lg:text-center">
         <span v-html="subtext"></span>
       </p>
     </div>

@@ -1,6 +1,6 @@
 <template>
     <div v-if="shouldShowIntakeForm" class="w-full flex justify-center">
-        <div class="w-full flex flex-col py-20 pt-0 md:py-24 px-6 lg:px-0 max-w-[1056px]">
+        <div class="w-full flex flex-col py-20  md:py-24 px-6 lg:px-0 max-w-[1056px]">
             <div class="flex items-center justify-start gap-1 lg:gap-3 max-w-[1050px]">
                 <div class="h-[10px] w-[10px] md:w-4 md:h-4 lg:h-6 lg:w-6 rounded-full bg-accentColor1"></div>
                 <div class="h-[1px] w-16 md:w-[145px] bg-accentColor1"></div>

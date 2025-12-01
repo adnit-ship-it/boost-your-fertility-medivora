@@ -59,7 +59,7 @@
           }" 
             :src="'/assets/images/brand/hero-logo-1764337361429.png'"
             :style="logoHeightStyle"
-            class="w-full object-cover" 
+            class="w-auto object-cover" 
             :alt="heroMedia?.logo?.alt || `${organizationName || 'Brand'} Logo`" 
           />
         </div>

@@ -10,6 +10,7 @@
       height="56px"
       fontSize="24"
       text="Back"
+      class="navigation-back-button"
     >
       <svg
         class="w-[12px] md:w-[16px] mr-4"
@@ -119,3 +120,10 @@ const handleBack = () => {
   emit("back");
 };
 </script>
+
+<style scoped>
+/* Override background color for Back button in Navigation component only */
+:deep(.navigation-back-button) {
+  background-color: #E7DFDD !important;
+}
+</style>

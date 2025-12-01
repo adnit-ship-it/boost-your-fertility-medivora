@@ -78,7 +78,7 @@
         </div>
 
         <div class="flex justify-center">
-          <UiButton type="submit" width="170px" height="44px" fontSize="24" ghost :disabled="isSubmitting">
+          <UiButton type="submit" width="170px" height="44px" fontSize="24" ghost :disabled="isSubmitting" class="contact-submit-button">
             {{ contact?.form?.submitButton || 'Submit' }}
             <svg class="w-[12px] md:w-[16px] ml-4" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -245,4 +245,8 @@ const handleSubmit = async () => {
 
 <style scoped>
 /* Contact page styles */
+/* Make submit button background transparent */
+:deep(.contact-submit-button) {
+  background-color: transparent !important;
+}
 </style>

@@ -8,7 +8,7 @@
       'border-2 border-bodyColor bg-white rounded-2xl p-6': !isMarketingOrBoxSelect,
       'p-0': isMarketingOrBoxSelect 
     }">
-      <h2 v-if="stepData.title" class="font-bold text-lg md:text-center text-left font-bodyFont md:font-headingFont md:text-[24px] text-bodyColor leading-[32px] md:leading-[36px] mb-2 md:mb-3"
+      <h2 v-if="stepData.title" class="font-bold text-lg md:text-center text-left font-bodyFont md:font-headingFont md:text-[24px] text-black leading-[32px] md:leading-[36px] mb-2 md:mb-3"
           :class="{ 'text-center': isMarketingOrBoxSelect }">
         {{ stepData.title }}
       </h2>

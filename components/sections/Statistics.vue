@@ -35,8 +35,8 @@
             }"
             class="w-full md:w-[420px] h-[108px] bg-backgroundColor border-2 border-accentColor1 rounded-[12px] flex items-center justify-center flex-col "
           >
-            <h3 class="text-[28px] md:text-[36px] leading-[32px] md:leading-[38px] font-semibold">{{ card.value }}</h3>
-            <p class="text-[20px] text-center leading-[24px]">
+            <h3 class="text-[20px] md:text-[28px] lg:text-[36px] leading-[24px] md:leading-[32px] lg:leading-[38px] font-semibold">{{ card.value }}</h3>
+            <p class="text-[14px] md:text-[16px] lg:text-[20px] text-center leading-[18px] md:leading-[20px] lg:leading-[24px]">
               <template v-for="(line, lineIndex) in card.descriptionLines" :key="`${card.value}-line-${lineIndex}`">
                 {{ line }}<br v-if="lineIndex !== card.descriptionLines.length - 1">
               </template>

@@ -104,7 +104,7 @@
                         mass: 1,
                         delay: 350,
                     },
-                }" class="flex flex-col items-center w-full max-w-[400px]">
+                }" class="flex flex-col items-start lg:items-center w-full max-w-[400px]">
                     <h3
                         class="text-accentColor1 text-[20px] lg:text-[20px] font-semibold text-left lg:text-center w-full">
                         {{ priority?.support?.title || 'Dr. Marion Vollmer' }}
@@ -128,7 +128,7 @@
                         mass: 1,
                         delay: 350,
                     },
-                }" class="flex flex-col items-center w-full max-w-[400px]">
+                }" class="flex flex-col items-start lg:items-center w-full max-w-[400px]">
                     <h3
                         class="text-accentColor1 text-[20px] lg:text-[24px] font-semibold text-left lg:text-center w-full">
                         {{ priority?.providers?.title || 'Daniel Wilson' }}
