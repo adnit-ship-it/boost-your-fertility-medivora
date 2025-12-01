@@ -57,7 +57,7 @@
           },
         }"
       >
-        <NuxtLink to="/get-started">
+        <NuxtLink to="/consultation">
           <UiButton 
             :width="isMobile ? '200px' : '320px'" 
             :height="isMobile ? '40px' : '48px'" 
