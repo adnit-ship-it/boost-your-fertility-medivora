@@ -98,7 +98,7 @@ const footerHeightStyle = computed(() => {
 const logoHeightStyle = computed(() => {
   const heights = footerLogo.value?.height;
   if (!heights) {
-    return { height: isMobile.value ? '20px' : '32px' };
+    return { height: isMobile.value ? '30px' : '32px' };
   }
   return {
     height: isMobile.value ? heights.mobile : heights.desktop

@@ -7,7 +7,7 @@
     <SectionsStatistics />
     <SectionsJourney />
     <SectionsCTA />
-    <SectionsBeforeAfter />
+    <!-- <SectionsBeforeAfter /> -->
     <SectionsIntakeForm />
   </div>
 </template>
