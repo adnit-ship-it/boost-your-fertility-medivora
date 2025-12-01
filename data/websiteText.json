@@ -241,19 +241,19 @@
     },
     "statistics": {
       "show": true,
-      "title": "Clinically Proven To Help You Lose Weight",
+      "title": "Smart Planning Saves You Thousands",
       "cards": [
         {
-          "value": "14.9%",
-          "description": "Average reduction in body weight"
+          "value": "$100,000",
+          "description": "Potential cost of IVF cycles without guidance"
         },
         {
-          "value": "6x",
-          "description": "More weight loss than diet\nand exercise alone"
+          "value": "<$10,000",
+          "description": "Cost of many effective alternative treatments"
         },
         {
-          "value": "100%",
-          "description": "Online Personalized Support"
+          "value": "90% Chance",
+          "description": "Probability of overcoming infertility with our method"
         }
       ],
       "media": {

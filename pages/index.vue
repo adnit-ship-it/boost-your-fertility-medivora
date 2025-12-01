@@ -2,7 +2,7 @@
   <div class="pt-[83px] lg:pt-[68px]">
     <SectionsHero />
     <SectionsTrustedBy center />
-    <SectionsDiscover showTitle />
+    <!-- <SectionsDiscover showTitle /> -->
     <SectionsReviews />
     <SectionsStatistics />
     <SectionsJourney />

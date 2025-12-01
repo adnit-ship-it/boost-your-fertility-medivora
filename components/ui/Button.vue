@@ -89,7 +89,7 @@ const buttonClasses = computed(() => {
   if (props.decorative) {
     // Decorative buttons don't have pointer cursor or button-specific interactions
     if (props.variant === "ghost" || props.ghost) {
-      return `${baseClasses} border border-accentColor1 ${textColorClass || 'text-accentColor1'} bg-accentColor2`;
+      return `${baseClasses} border border-accentColor1 ${textColorClass || 'text-accentColor1'} bg-[#E6CFB6]`;
     } else if (props.variant === "disabled" || props.disabled) {
       return `${baseClasses} bg-gray-300 ${textColorClass || 'text-gray-500'}`;
     } else if (props.variant === "loading" || props.loading) {
