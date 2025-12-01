@@ -24,10 +24,11 @@
           class="text-white text-[14px] md:text-[18px] lg:text-[20px] hover:text-gray-200 transition-colors duration-200">
           {{ navigation?.contactUs || 'Contact Us' }}
         </NuxtLink>
-        <NuxtLink to="/products"
+        <!-- Products page commented out -->
+        <!-- <NuxtLink to="/products"
           class="text-white text-[14px] md:text-[18px] lg:text-[20px] font-medium hover:text-gray-200 transition-colors duration-200">
           {{ navigation?.products || 'Products' }}
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
     </div>
     <!-- Logo on the left -->

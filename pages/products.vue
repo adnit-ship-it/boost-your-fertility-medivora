@@ -1,5 +1,6 @@
+<!-- Products page commented out - redirecting to home -->
 <template>
-  <UiSectionWrapper v-if="shouldShowProductsPage" class="py-24 md:py-32 flex-col">
+  <!-- <UiSectionWrapper v-if="shouldShowProductsPage" class="py-24 md:py-32 flex-col">
     <UiSectionContainer class="mb-20">
       <img v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
         opacity: 1,
@@ -93,16 +94,22 @@
       </div>
     </UiSectionContainer>
     <SectionsDiscover :filtered-products="filteredProducts" />
-  </UiSectionWrapper>
-
+  </UiSectionWrapper> -->
+  
+  <!-- Redirecting to home page -->
+  <div class="flex items-center justify-center min-h-screen">
+    <p>Redirecting...</p>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from "vue";
-import { useSiteTextStore } from "~/stores/siteText";
-import { useBrandLogos } from "~/utils/branding";
-import { useCRMStore } from "~/stores/crmStore";
-import { getAllAvailableCategories, categoryLabels, products as staticProducts } from "~/data/intake-form/products";
+// Products page commented out - redirecting to home
+import { onMounted } from "vue";
+// import { ref, onMounted, onUnmounted, computed } from "vue";
+// import { useSiteTextStore } from "~/stores/siteText";
+// import { useBrandLogos } from "~/utils/branding";
+// import { useCRMStore } from "~/stores/crmStore";
+// import { getAllAvailableCategories, categoryLabels, products as staticProducts } from "~/data/intake-form/products";
 
 const siteTextStore = useSiteTextStore();
 const crmStore = useCRMStore();

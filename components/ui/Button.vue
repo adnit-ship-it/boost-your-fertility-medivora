@@ -100,7 +100,7 @@ const buttonClasses = computed(() => {
   } else {
     // Regular buttons with pointer cursor and button interactions
     if (props.variant === "ghost" || props.ghost) {
-      return `${baseClasses} border border-accentColor1 ${textColorClass || 'text-accentColor1'} bg-accentColor2 cursor-pointer`;
+      return `${baseClasses} border border-accentColor1 ${textColorClass || 'text-accentColor1'} bg-[#E6CFB6] cursor-pointer`;
     } else if (props.variant === "disabled" || props.disabled) {
       return `${baseClasses} bg-gray-300 ${textColorClass || 'text-gray-500'} cursor-not-allowed`;
     } else if (props.variant === "loading" || props.loading) {
