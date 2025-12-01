@@ -66,9 +66,9 @@
               :font-size="isMobile ? '14' : '24'">{{ cta?.stats?.worldwideCare || 'Worldwide Care' }}</UiButton>
           </div>
 
-          <div class="pt-7 lg:pt-[50px] flex flex-col lg:flex-row gap-2 lg:gap-10 font-medium">
+          <div class="pt-7 lg:pt-[50px] grid grid-cols-1 md:grid-cols-2 gap-x-2 md:gap-x-10 gap-y-2 lg:gap-y-9">
             <div 
-              v-for="(feature, index) in firstRowFeatures" 
+              v-for="(feature, index) in features" 
               :key="`feature-${index}`"
               v-motion 
               :initial="{ opacity: 0, y: 32 }" 
@@ -81,7 +81,7 @@
                   stiffness: 250,
                   damping: 25,
                   mass: 1,
-                  delay: 300,
+                  delay: 300 + (index * 50),
                 },
               }" 
               class="flex gap-1 items-center text-[12px] md:text-[20px] lg:text-[24px] font-medium"
@@ -91,33 +91,6 @@
                 :alt="`${feature.text} icon`"
                 :style="getSvgColorStyle(feature.iconColor)"
                 class="w-[18px] h-[18px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px]" />
-              <p class="text-black">{{ feature.text }}</p>
-            </div>
-          </div>
-          <div class="mt-2 lg:mt-9 flex flex-col lg:flex-row gap-2 lg:gap-10">
-            <div 
-              v-for="(feature, index) in secondRowFeatures" 
-              :key="`feature-${index + firstRowFeatures.length}`"
-              v-motion 
-              :initial="{ opacity: 0, y: 32 }" 
-              :visible-once="{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 400,
-                  type: 'ease-in',
-                  stiffness: 250,
-                  damping: 25,
-                  mass: 1,
-                  delay: 300,
-                },
-              }" 
-              class="flex gap-1 items-center text-[12px] md:text-[20px] lg:text-[24px]"
-            >
-              <img 
-                :src="getIconPath(feature.iconType, iconRegistry)" 
-                :alt="`${feature.text} icon`"
-                class="w-[18px] h-[18px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px] text-[#d3c984]" />
               <p class="text-black">{{ feature.text }}</p>
             </div>
           </div>
@@ -141,17 +114,6 @@ const cta = computed(() => siteTextStore.getHomeText()?.cta);
 const shouldShowCTA = computed(() => (cta.value?.show ?? true));
 const iconRegistry = computed(() => siteTextStore.getIconRegistry());
 const features = computed(() => cta.value?.features || []);
-
-// Split features into two rows
-const firstRowFeatures = computed(() => {
-  const midpoint = Math.ceil(features.value.length / 2);
-  return features.value.slice(0, midpoint);
-});
-
-const secondRowFeatures = computed(() => {
-  const midpoint = Math.ceil(features.value.length / 2);
-  return features.value.slice(midpoint);
-});
 
 // Product image height
 const productHeightStyle = computed(() => {
