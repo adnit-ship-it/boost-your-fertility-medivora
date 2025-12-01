@@ -19,7 +19,7 @@
               mass: 1,
               delay: 100,
             },
-          }" class="font-semibold text-[20px] md:text-[28px] lg:text-[32px] ">
+          }" class="font-semibold text-[20px] md:text-[28px] lg:text-[32px] text-black">
             {{ cta?.title || 'Real Results' }}
           </h2>
           <p v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
@@ -33,7 +33,7 @@
               mass: 1,
               delay: 150,
             },
-          }" class="pt-5 text-[16px] md:text-[20px] lg:text-[28px] font-regular">
+          }" class="pt-5 text-[16px] md:text-[20px] lg:text-[28px] font-regular text-black">
             {{ cta?.subtitle }}
           </p>
 
@@ -49,7 +49,7 @@
                 mass: 1,
                 delay: 200,
               },
-            }" ghost decorative :width="isMobile ? '145px' : '320px'" :height="isMobile ? '24px' : '44px'"
+            }" ghost decorative text-color="text-white" class="bg-accentColor1 text-white" :width="isMobile ? '145px' : '320px'" :height="isMobile ? '24px' : '44px'"
               :font-size="isMobile ? '12' : '24'">{{ cta?.stats?.patients || '1000+ Patients' }}</UiButton>
             <UiButton v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
               opacity: 1,
@@ -62,7 +62,7 @@
                 mass: 1,
                 delay: 250,
               },
-            }" ghost decorative :width="isMobile ? '200px' : '320px'" :height="isMobile ? '24px' : '44px'"
+            }" ghost decorative text-color="text-white" class="bg-accentColor1 text-white" :width="isMobile ? '200px' : '320px'" :height="isMobile ? '24px' : '44px'"
               :font-size="isMobile ? '14' : '24'">{{ cta?.stats?.worldwideCare || 'Worldwide Care' }}</UiButton>
           </div>
 
@@ -91,7 +91,7 @@
                 :alt="`${feature.text} icon`"
                 :style="getSvgColorStyle(feature.iconColor)"
                 class="w-[18px] h-[18px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px]" />
-              <p>{{ feature.text }}</p>
+              <p class="text-black">{{ feature.text }}</p>
             </div>
           </div>
           <div class="mt-2 lg:mt-9 flex flex-col lg:flex-row gap-2 lg:gap-10">
@@ -117,9 +117,8 @@
               <img 
                 :src="getIconPath(feature.iconType, iconRegistry)" 
                 :alt="`${feature.text} icon`"
-                :style="getSvgColorStyle(feature.iconColor)"
-                class="w-[18px] h-[18px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px]" />
-              <p>{{ feature.text }}</p>
+                class="w-[18px] h-[18px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px] text-[#d3c984]" />
+              <p class="text-black">{{ feature.text }}</p>
             </div>
           </div>
         </div>

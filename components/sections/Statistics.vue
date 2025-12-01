@@ -33,7 +33,7 @@
                 delay: 150 + (50 * index),
               },
             }"
-            class="w-full md:w-[420px] h-[108px] bg-backgroundColor border-2 border-accentColor1 rounded-[12px] flex items-center justify-center flex-col shadow-xl"
+            class="w-full md:w-[420px] h-[108px] bg-backgroundColor border-2 border-accentColor1 rounded-[12px] flex items-center justify-center flex-col "
           >
             <h3 class="text-[28px] md:text-[36px] leading-[32px] md:leading-[38px] font-semibold">{{ card.value }}</h3>
             <p class="text-[20px] text-center leading-[24px]">

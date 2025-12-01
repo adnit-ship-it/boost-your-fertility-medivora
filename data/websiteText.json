@@ -43,7 +43,7 @@
           }
         },
         "logo": {
-          "src": "/assets/images/brand/logo.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility logo",
           "heights": {
             "mobile": "25px",
@@ -522,7 +522,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/logo.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
@@ -537,7 +537,7 @@
           "desktop": "85px"
         },
         "logo": {
-          "src": "/assets/images/brand/logo-alt.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility secondary logo",
           "height": {
             "mobile": "20px",
@@ -565,7 +565,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/logo.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
@@ -580,7 +580,7 @@
           "desktop": "85px"
         },
         "logo": {
-          "src": "/assets/images/brand/logo-alt.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility secondary logo",
           "height": {
             "mobile": "20px",
@@ -598,7 +598,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/logo.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
@@ -613,7 +613,7 @@
           "desktop": "85px"
         },
         "logo": {
-          "src": "/assets/images/brand/logo-alt.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility secondary logo",
           "height": {
             "mobile": "20px",
@@ -675,7 +675,7 @@
     "branding": {
       "loadingScreen": {
         "logo": {
-          "src": "/assets/images/brand/logo-alt.svg",
+          "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility loading logo",
           "height": {
             "mobile": "124px",

@@ -64,7 +64,7 @@
             mass: 1,
             delay: 50,
           },
-        }" class="text-2xl md:text-3xl lg:text-[48px] font-bold text-accentColor1 ">
+        }" class="text-2xl md:text-3xl lg:text-[48px] font-bold text-black ">
           {{ hero?.heading || 'Lose weight with GLP-1 medications.' }}
         </h1>
 

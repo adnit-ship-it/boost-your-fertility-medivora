@@ -11,7 +11,7 @@
         mass: 1,
       },
     }" 
-      :src="logoUrl || '/assets/images/brand/logo.svg'" 
+      :src="logoUrl || '/assets/images/brand/hero-logo-1764337361429.png'" 
       :alt="`${organizationName || 'Brand'} Logo`" 
       class="w-auto h-[32px] md:h-[48px] object-cover" />
     <h2 v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{

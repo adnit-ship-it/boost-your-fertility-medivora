@@ -31,7 +31,7 @@
                     <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
-                    <p class="text-[16px] lg:text-[20px] font-medium">{{ priority?.features?.noHiddenFees || 'No Hidden Fees' }}</p>
+                    <p class="text-[16px] lg:text-[20px] font-medium text-black">{{ priority?.features?.noHiddenFees || 'No Hidden Fees' }}</p>
                 </div>
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
                     opacity: 1,
@@ -48,7 +48,7 @@
                     <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
-                    <p class="text-[16px] lg:text-[20px] font-medium">
+                    <p class="text-[16px] lg:text-[20px] font-medium text-black">
                         {{ priority?.features?.expeditedDelivery || 'Expedited Delivery' }}
                     </p>
                 </div>
@@ -67,7 +67,7 @@
                     <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
-                    <p class="text-[16px] lg:text-[20px] font-medium">
+                    <p class="text-[16px] lg:text-[20px] font-medium text-black">
                         {{ priority?.features?.doctorLedPlans || 'Doctor-led Plans & Coaching' }}
                     </p>
                 </div>
