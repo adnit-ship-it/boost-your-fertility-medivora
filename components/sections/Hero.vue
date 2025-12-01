@@ -1,5 +1,16 @@
 <template>
   <UiSectionWrapper v-if="shouldShowHero" class="relative text-black pt-32 pb-52">
+    <!-- Subbrand Indicator - Top Right -->
+    <a 
+      href="https://www.boostfertility.com/" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="subbrand-indicator subbrand-top-right-container"
+    >
+      <span class="text-xs md:text-sm font-normal">Brought to you by</span>
+      <img src="/assets/images/brand/Boost-Fertility-pink.png" alt="Boost Fertility logo" class="h-8 md:h-10 w-auto mt-1" />
+    </a>
+
     <!-- Background Image -->
     <div
       class="absolute inset-0 bg-cover bg-no-repeat w-full h-full"
@@ -242,5 +253,35 @@ const buttonFontSize = computed(() => (isMobile.value ? "12" : "24"));
 </script>
 
 <style scoped>
-/* Custom styles if needed */
+/* Subbrand Indicator Base Styles */
+.subbrand-indicator {
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.subbrand-indicator:hover {
+  opacity: 0.8;
+}
+
+/* Top right corner of container (absolute within wrapper) */
+.subbrand-top-right-container {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .subbrand-top-right-container {
+    top: 32px;
+    right: 24px;
+  }
+}
 </style>
