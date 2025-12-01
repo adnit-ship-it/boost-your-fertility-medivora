@@ -13,7 +13,7 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
 </script>
 
 <template>
-    <UiSectionWrapper v-if="shouldShowBanner" class="py-20">
+    <UiSectionWrapper v-if="shouldShowBanner" class="py-24">
         <UiSectionContainer>
             <img v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
                 opacity: 1,
@@ -28,7 +28,7 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
             }" 
                 :src="'/assets/images/brand/primary-logo-1764263764776.png'" 
                 :alt="`${organizationName || 'Brand'} Logo`"
-                class="w-auto h-[32px] lg:h-[151px] object-cover" />
+                class="w-auto h-[56px] md:h-[72px] lg:h-[151px] object-cover" />
             <div class="w-full flex flex-col md:flex-row gap-8 lg:gap-20 items-center mt-6">
                 <div class="flex-1 h-full flex flex-col gap-2 lg:gap-6">
                     <h1 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{

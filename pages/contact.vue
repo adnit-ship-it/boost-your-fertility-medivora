@@ -1,5 +1,5 @@
 <template>
-  <div v-if="shouldShowContact" class="mx-auto bg-backgroundColor min-h-[98vh] py-20 md:py-32 flex flex-col items-center px-8 md:px-0">
+  <div v-if="shouldShowContact" class="mx-auto bg-backgroundColor min-h-[98vh] py-24 md:py-32 flex flex-col items-center px-8 md:px-0">
     <img v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
       opacity: 1,
       y: 0,
@@ -13,7 +13,7 @@
     }" 
       :src="logoUrl || '/assets/images/brand/hero-logo-1764337361429.png'" 
       :alt="`${organizationName || 'Brand'} Logo`" 
-      class="w-auto h-[32px] md:h-[48px] object-cover" />
+      class="w-auto h-[56px] md:h-[72px] lg:h-[151px] object-cover" />
     <h2 v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
       opacity: 1,
       y: 0,

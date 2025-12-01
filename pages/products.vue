@@ -14,7 +14,7 @@
       }" 
         :src="logoUrl || '/assets/images/brand/hero-logo-1764337361429.png'" 
         :alt="`${organizationName || 'Brand'} Logo`" 
-        class="w-auto h-[32px] md:h-[64px] object-cover" />
+        class="w-auto h-[56px] md:h-[72px] lg:h-[151px] object-cover" />
       <h1 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
         opacity: 1,
         y: 0,

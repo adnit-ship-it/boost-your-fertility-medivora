@@ -46,8 +46,8 @@
           "src": "/assets/images/brand/hero-logo-1764337361429.png",
           "alt": "Boost Your Fertility logo",
           "heights": {
-            "mobile": "25px",
-            "tablet": "28px",
+            "mobile": "56px",
+            "tablet": "72px",
             "desktop": "151px"
           }
         }
@@ -436,7 +436,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/public/assets/images/brand/primary-logo-1764263764776.png",
+          "src": "/assets/images/brand/primary-logo-1764263764776.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
@@ -580,7 +580,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/hero-logo-1764337361429.png",
+          "src": "/assets/images/brand/primary-logo-1764263764776.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
@@ -623,7 +623,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/hero-logo-1764337361429.png",
+          "src": "/assets/images/brand/primary-logo-1764263764776.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
@@ -656,7 +656,7 @@
           "desktop": "68px"
         },
         "logo": {
-          "src": "/assets/images/brand/hero-logo-1764337361429.png",
+          "src": "/assets/images/brand/primary-logo-1764263764776.png",
           "alt": "Boost Your Fertility primary logo",
           "height": {
             "mobile": "24px",
