@@ -567,6 +567,12 @@
         }
       }
     },
+    "cta": {
+      "show": true,
+      "title": "Ready to Start Your Journey?",
+      "subtitle": "Get a personalized budget and plan today.",
+      "buttonText": "Take the Assessment"
+    },
     "layout": {
       "navbar": {
         "height": {

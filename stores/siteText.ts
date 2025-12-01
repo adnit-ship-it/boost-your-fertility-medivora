@@ -154,10 +154,17 @@ interface HomeSection {
   layout?: LayoutHeights
 }
 
+interface AboutCTASection extends ToggleableSection {
+  title: string
+  subtitle: string
+  buttonText: string
+}
+
 interface AboutSection {
   banner: AboutBannerSection
   priority: AboutPrioritySection
   journey?: HomeJourneySection
+  cta?: AboutCTASection
   layout?: LayoutHeights
 }
 

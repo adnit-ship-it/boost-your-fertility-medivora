@@ -4,6 +4,7 @@
     <SectionsTrustedBy />
     <SectionsAboutPriority />
     <SectionsJourney page="about" />
+    <SectionsAboutCTA />
   </div>
 </template>
 
