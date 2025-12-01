@@ -22,15 +22,32 @@
                     </span>
                 </h3>
             </div>
-            <div
-                v-for="field in intakeFields"
-                :key="field.label"
-                class="mt-6 md:pt-p flex flex-col gap-2"
-            >
-                <div class="flex flex-col gap-2 max-w-[1050px] text-[14px] md:text-[20px] font-inter">
-                    <p>{{ field.label }}</p>
-                    <input :placeholder="field.placeholder" type="text"
-                        class="border border-[#AAA8A8] p-2 h-[36px] md:h-[48px] rounded" />
+            <!-- Gender Selection Question (matching quiz styling) -->
+            <div v-if="showGenderQuestion" class="mt-6 md:pt-p flex flex-col gap-2 max-w-[1050px]">
+                <p class="text-[14px] md:text-[20px] font-inter mb-2">To get started, please select your gender *</p>
+                <div class="flex gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-lg border-2 transition-colors w-full"
+                        :class="genderValue === 'Male' ? 'border-accentColor1 bg-accentColor1/10' : 'border-gray-200 hover:border-accentColor1/50'">
+                        <input 
+                            type="radio" 
+                            name="gender" 
+                            value="Male" 
+                            v-model="genderValue"
+                            class="w-5 h-5 text-accentColor1 cursor-pointer" 
+                        />
+                        <span class="text-[14px] md:text-[20px]">Male</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-lg border-2 transition-colors w-full "
+                        :class="genderValue === 'Female' ? 'border-accentColor1 bg-accentColor1/10' : 'border-gray-200 hover:border-accentColor1/50'">
+                        <input 
+                            type="radio" 
+                            name="gender" 
+                            value="Female" 
+                            v-model="genderValue"
+                            class="w-5 h-5 text-accentColor1 cursor-pointer" 
+                        />
+                        <span class="text-[14px] md:text-[20px]">Female</span>
+                    </label>
                 </div>
             </div>
             <NuxtLink class="mt-6 md:pt-4" to="/consultation">
@@ -56,20 +73,9 @@ const siteTextStore = useSiteTextStore();
 
 const intakeForm = computed(() => siteTextStore.getHomeText()?.intakeForm);
 const shouldShowIntakeForm = computed(() => (intakeForm.value?.show ?? true));
-const defaultFields = [
-    { label: "Name", placeholder: "First and Last" },
-    { label: "Age", placeholder: "In Years" },
-    { label: "Height", placeholder: "5'10\"" },
-    { label: "Weight", placeholder: "In Pounds" },
-];
-const intakeFields = computed(() => {
-    const fields = intakeForm.value?.fields || [];
-    const sourceFields = fields.length > 0 ? fields : defaultFields;
-    return sourceFields.map((field, index) => ({
-        label: field.label || `Field ${index + 1}`,
-        placeholder: field.placeholder || "",
-    }));
-});
+// Only show gender selection question (matching the quiz)
+const showGenderQuestion = computed(() => true);
+const genderValue = ref(null);
 const intakeHighlightLines = computed(() => {
     const highlight = intakeForm.value?.highlight ;
     return highlight.split("\n");
@@ -97,3 +103,15 @@ const buttonWidth = computed(() => (isMobile.value ? "144px" : "170px"));
 const buttonHeight = computed(() => (isMobile.value ? "28px" : "44px"));
 const buttonFontSize = computed(() => (isMobile.value ? "16" : "24"));
 </script>
+
+<style scoped>
+/* Custom radio button styling to use accentColor1 when selected */
+input[type="radio"] {
+    accent-color: #0471F6; /* accentColor1 value from designTokens */
+}
+
+/* Ensure the radio button uses accentColor1 when checked */
+input[type="radio"]:checked {
+    accent-color: #0471F6;
+}
+</style>

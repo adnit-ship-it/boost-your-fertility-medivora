@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
-    <!-- Weight Summary Display for personalInfo step - ABOVE the white container -->
-    <WeightSummaryDisplay v-if="stepData.id === 'personalInfo'" :formAnswers="formAnswers" />
+    <!-- Fertility Summary Display for personalInfo step - ABOVE the white container -->
+    <FertilitySummaryDisplay v-if="stepData.id === 'personalInfo'" :formAnswers="formAnswers" />
 
     <!-- This container handles the overall styling for the question area -->
     <div class="relative" :class="{ 
@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import { computed, type PropType } from 'vue'
 import type { FormStep, FormQuestion, FormAnswers } from '~/types/intake-form/form'
-import WeightSummaryDisplay from './WeightSummaryDisplay.vue'
+import FertilitySummaryDisplay from './FertilitySummaryDisplay.vue'
 import { getComponentForQuestion } from '~/utils/intake-form/componentMapper'
 
 // --- PROPS ---

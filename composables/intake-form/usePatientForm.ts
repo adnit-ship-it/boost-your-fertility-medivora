@@ -209,11 +209,8 @@ export function usePatientForm(
           localStorage.setItem(`quiz_${quizConfig.value.id}_completed_at`, new Date().toISOString());
         }
         
-        // Navigate to checkout with productId from route
-        const route = useRoute();
-        const productId = route.query.productId as string;
-        const checkoutUrl = productId ? `/checkout?productId=${productId}` : '/checkout';
-        await navigateTo(checkoutUrl);
+        // Navigate to homepage after form completion
+        await navigateTo('/');
       } catch (error) {
         submissionError.value = "Failed to complete form. Please try again.";
       } finally {
