@@ -1,7 +1,7 @@
 <template>
   <UiSectionWrapper v-if="shouldShowCTA" class="py-20 relative bg-accentColor1/20 text-bodyColor">
-    <UiSectionContainer class="flex md:flex-row-reverse pb-8 md:pb-0">
-      <div class="absolute md:relative bottom-0 right-0 z-20 pb-4 md:pb-0 pr-2 md:pr-20 lg:pr-0 md:h-full" :style="productHeightStyle">
+    <UiSectionContainer class="flex md:flex-row-reverse pb-8 md:pb-0 pr-0 md:pr-0 pl-4 md:pl-8">
+      <div class="absolute md:relative bottom-0 right-0 z-20 pb-4 md:pb-0 pr-0  md:h-full" :style="productHeightStyle">
         <img :src="cta?.media?.product?.src || '/assets/images/products.png'" :alt="cta?.media?.product?.alt || 'cta image'"
           class="h-full w-full object-contain scale-100 md:scale-90 max-w-[300px] md:max-w-[400px] rounded-3xl" />
       </div>
@@ -84,7 +84,7 @@
                   delay: 300 + (index * 50),
                 },
               }" 
-              class="flex gap-1 items-center text-[12px] md:text-[20px] lg:text-[24px] font-medium"
+              class="flex gap-1 items-center text-[12px] md:text-[17px] lg:text-[22px] font-medium"
             >
               <img 
                 :src="getIconPath(feature.iconType, iconRegistry)" 
