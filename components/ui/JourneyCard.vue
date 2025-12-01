@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'h-[88px] md:h-[128px] w-[276px] md:w-[500px] transition-all duration-300 lg:h-[304px] lg:w-[304px] border-2 rounded-[6px] lg:rounded-[10px] flex flex-row lg:flex-col items-start lg:items-center justify-start lg:justify-center gap-5 px-5 py-2 md:py-4 lg:px-0 lg:py-0',
+      'h-[88px] md:h-[128px] w-[276px] md:w-[500px] transition-all duration-300 lg:h-[304px] lg:w-[304px] border-2 rounded-[6px] lg:rounded-[10px] flex flex-row lg:flex-col items-start lg:items-center justify-start lg:justify-center gap-5 px-5 py-2 md:py-4 lg:px-2 lg:py-0',
       isActive ? 'border-accentColor1 bg-accentColor2' : 'border-accentColor1 lg:border-accentColor1 lg:bg-accentColor2'
     ]"
   >

@@ -57,7 +57,7 @@
       "show": true,
       "title": "Trusted By",
       "marquee": {
-        "speed": 50
+        "speed": 40
       },
       "logos": [
         {
@@ -122,7 +122,7 @@
       "show": true,
       "title": "What Our Customers Have To Say",
       "marquee": {
-        "speed": 50
+        "speed": 40
       },
       "media": {
         "avatar": {

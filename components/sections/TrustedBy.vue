@@ -1,5 +1,5 @@
 <template>
-  <UiSectionWrapper v-if="shouldShowTrustedBy" class="flex-col overflow-hidden py-20">
+  <UiSectionWrapper v-if="shouldShowTrustedBy" class="flex-col overflow-hidden pt-20">
     <UiSectionContainer>
       <h2 v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
         opacity: 1,

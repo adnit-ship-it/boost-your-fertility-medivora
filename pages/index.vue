@@ -3,8 +3,8 @@
     <SectionsHero />
     <SectionsTrustedBy center />
     <!-- <SectionsDiscover showTitle /> -->
-    <SectionsReviews />
     <SectionsStatistics />
+    <SectionsReviews />
     <SectionsJourney />
     <SectionsCTA />
     <!-- <SectionsBeforeAfter /> -->

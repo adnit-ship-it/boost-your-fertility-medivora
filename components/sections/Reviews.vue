@@ -1,5 +1,5 @@
 <template>
-  <UiSectionWrapper v-if="shouldShowReviews" class="flex-col pb-20">
+  <UiSectionWrapper v-if="shouldShowReviews" class="flex-col py-20">
     <UiSectionContainer>
       <h2 v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
         opacity: 1,
@@ -33,7 +33,7 @@
       }"  :speed="reviewsSection?.marquee?.speed || 50" :autoFill="true" class="flex gap-8">
         <div class="flex gap-5 md:gap-8">
           <div v-for="review in topReviews" :key="`top-${review.name}`"
-            class="min-w-[320px] md:min-w-[492px] max-w-[320px] md:max-w-[492px] h-[136px] md:h-[188px] border-accentColor1 border rounded-[16px] md:rounded-[28px] bg-backgroundColor p-2 md:p-4 flex flex-col gap-5 md:gap-8">
+            class="min-w-[320px] md:min-w-[492px] max-w-[320px] md:max-w-[492px] h-[136px] md:h-[188px] border-accentColor1 border rounded-[16px] md:rounded-[28px] bg-white p-2 md:p-4 flex flex-col gap-5 md:gap-8">
             <div class="flex items-center justify-between">
               <div class="flex gap-[6px] items-center">
                 <img 
@@ -77,7 +77,7 @@
       }"  :speed="reviewsSection?.marquee?.speed || 50" :direction="'right'" :autoFill="true" class="flex gap-8">
         <div class="flex gap-5 md:gap-8">
           <div v-for="review in bottomReviews" :key="`bottom-${review.name}`"
-            class="min-w-[320px] md:min-w-[492px] max-w-[320px] md:max-w-[492px] h-[136px] md:h-[188px] border-accentColor1 border rounded-[16px] md:rounded-[28px] bg-backgroundColor p-2 md:p-4 flex flex-col gap-5 md:gap-8">
+            class="min-w-[320px] md:min-w-[492px] max-w-[320px] md:max-w-[492px] h-[136px] md:h-[188px] border-accentColor1 border rounded-[16px] md:rounded-[28px] bg-white p-2 md:p-4 flex flex-col gap-5 md:gap-8">
             <div class="flex items-center justify-between">
               <div class="flex gap-[6px] items-center">
                 <img 

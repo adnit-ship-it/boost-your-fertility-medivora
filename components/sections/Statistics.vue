@@ -1,5 +1,5 @@
 <template>
-  <UiSectionWrapper v-if="shouldShowStatistics" class="bg-accentColor2 py-20">
+  <UiSectionWrapper v-if="shouldShowStatistics" class="bg-accentColor1/20 py-20">
     <UiSectionContainer class="flex flex-col gap-12">
       <h2 v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
         opacity: 1,
@@ -33,7 +33,7 @@
                 delay: 150 + (50 * index),
               },
             }"
-            class="w-full md:w-[420px] h-[108px] bg-backgroundColor border-2 border-accentColor1 rounded-[12px] flex items-center justify-center flex-col "
+            class="w-full md:w-[420px] h-[108px] bg-white border-2 border-accentColor1 rounded-[12px] flex items-center justify-center flex-col "
           >
             <h3 class="text-[20px] md:text-[28px] lg:text-[36px] leading-[24px] md:leading-[32px] lg:leading-[38px] font-semibold">{{ card.value }}</h3>
             <p class="text-[14px] md:text-[16px] lg:text-[20px] text-center leading-[18px] md:leading-[20px] lg:leading-[24px]">
