@@ -488,21 +488,23 @@
     },
     "priority": {
       "show": true,
-      "title": "Your Satisfaction Is Our Priority",
+      "title": "Led by Leading Fertility Experts",
       "features": {
-        "noHiddenFees": "No Hidden Fees",
-        "expeditedDelivery": "Expedited Delivery",
-        "doctorLedPlans": "Doctor-led Plans & Coaching",
-        "moneyBackGuarantee": "Money Back Guarantee"
+        "noHiddenFees": "Published Research",
+        "expeditedDelivery": "PhD Embryology",
+        "doctorLedPlans": "Author Led",
+        "moneyBackGuarantee": "Proven Methods"
       },
       "support": {
-        "title": "Unlimited 24/7 Support Included",
-        "description": "Boost Your Fertility provides 24/7 access to a dedicated team of specialists, ensuring you have the support you need around the clock. With unlimited appointments, messaging and support, you can confidently reach out for guidance, ask questions, or address concerns at any time."
+        "title": "Dr. Marion Vollmer",
+        "subtitle": "PhD in Embryology",
+        "description": "A published world-leading Sperm Swimming Specialist. Dr. Vollmer ensures that every recommendation is backed by rigorous science and clinical expertise to maximize your chances."
       },
       "providers": {
-        "title": "Hand Selected Providers",
-        "description": "Boost Your Fertility physicians are here to guide you every step of the way, bringing both their expertise and genuine care to keep you supported.",
-        "certification": "Certified doctors and clinicians"
+        "title": "Daniel Wilson",
+        "subtitle": "Founder & Author",
+        "description": "Creator of the Boost Fertility method. Daniel brings deep industry knowledge and is the author of 'We Want a Baby Now', the essential guide to overcoming infertility on a budget.",
+        "certification": "Author of 'We Want a Baby Now' (3rd Edition)"
       },
       "media": {
         "featureIcon": {

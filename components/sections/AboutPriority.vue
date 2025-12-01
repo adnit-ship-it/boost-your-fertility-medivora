@@ -13,7 +13,7 @@
                     delay: 100,
                 },
             }" class="text-[20px] md:text-[28px] lg:text-[32px] w-full text-left  font-semibold">
-                {{ priority?.title || 'Your Satisfaction Is Our Priority' }}
+                {{ priority?.title || 'Led by Leading Fertility Experts' }}
             </h2>
             <div class="mt-6 lg:mt-10 flex flex-col md:flex-row gap-4 md:justify-between w-full px-8 lg:px-0">
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
@@ -28,10 +28,10 @@
                         delay: 150,
                     },
                 }" class="flex flex-row gap-2 items-center">
-                    <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
+                    <img :src="featureIcon?.src || '/assets/images/checkmark-star.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
-                    <p class="text-[16px] lg:text-[20px] font-medium text-black">{{ priority?.features?.noHiddenFees || 'No Hidden Fees' }}</p>
+                    <p class="text-[16px] lg:text-[20px] font-medium text-black">{{ priority?.features?.noHiddenFees || 'Published Research' }}</p>
                 </div>
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
                     opacity: 1,
@@ -45,11 +45,11 @@
                         delay: 200,
                     },
                 }" class="flex flex-row gap-2 items-center">
-                    <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
+                    <img :src="featureIcon?.src || '/assets/images/checkmark-star.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
                     <p class="text-[16px] lg:text-[20px] font-medium text-black">
-                        {{ priority?.features?.expeditedDelivery || 'Expedited Delivery' }}
+                        {{ priority?.features?.expeditedDelivery || 'PhD Embryology' }}
                     </p>
                 </div>
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
@@ -64,11 +64,11 @@
                         delay: 250,
                     },
                 }" class="flex flex-row gap-2 items-center">
-                    <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
+                    <img :src="featureIcon?.src || '/assets/images/checkmark-star.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
                     <p class="text-[16px] lg:text-[20px] font-medium text-black">
-                        {{ priority?.features?.doctorLedPlans || 'Doctor-led Plans & Coaching' }}
+                        {{ priority?.features?.doctorLedPlans || 'Author Led' }}
                     </p>
                 </div>
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
@@ -83,11 +83,11 @@
                         delay: 300,
                     },
                 }" class="flex flex-row gap-2 items-center">
-                    <img :src="featureIcon?.src || '/assets/images/checkmark-star-brown.svg'"
+                    <img :src="featureIcon?.src || '/assets/images/checkmark-star.svg'"
                         :alt="featureIcon?.alt || 'checkmark'"
                         class="w-[28px] h-[28px]" />
                     <p class="text-[16px] lg:text-[20px] font-medium">
-                        {{ priority?.features?.moneyBackGuarantee || 'Money Back Guarantee' }}
+                        {{ priority?.features?.moneyBackGuarantee || 'Proven Methods' }}
                     </p>
                 </div>
             </div>
@@ -107,11 +107,14 @@
                 }" class="flex flex-col items-center w-full max-w-[400px]">
                     <h3
                         class="text-accentColor1 text-[20px] lg:text-[20px] font-semibold text-left lg:text-center w-full">
-                        {{ priority?.support?.title || 'Unlimited 24/7 Support Included' }}
+                        {{ priority?.support?.title || 'Dr. Marion Vollmer' }}
                     </h3>
+                    <p class="text-accentColor1 text-[16px] lg:text-[16px] font-semibold text-left lg:text-center w-full mt-1">
+                        {{ priority?.support?.subtitle || 'PhD in Embryology' }}
+                    </p>
                     <div class="h-0.5 w-10 bg-accentColor1 mt-0"></div>
                     <p class="font-medium mt-4 tracking-tight w-full text-left lg:text-center">
-                        {{ priority?.support?.description }}
+                        {{ priority?.support?.description || 'A published world-leading Sperm Swimming Specialist. Dr. Vollmer ensures that every recommendation is backed by rigorous science and clinical expertise to maximize your chances.' }}
                     </p>
                 </div>
                 <div v-motion :initial="{ opacity: 0, y: 32 }" :visible-once="{
@@ -128,17 +131,20 @@
                 }" class="flex flex-col items-center w-full max-w-[400px]">
                     <h3
                         class="text-accentColor1 text-[20px] lg:text-[24px] font-semibold text-left lg:text-center w-full">
-                        {{ priority?.providers?.title || 'Hand Selected Providers' }}
+                        {{ priority?.providers?.title || 'Daniel Wilson' }}
                     </h3>
+                    <p class="text-accentColor1 text-[16px] lg:text-[18px] font-semibold text-left lg:text-center w-full mt-1">
+                        {{ priority?.providers?.subtitle || 'Founder & Author' }}
+                    </p>
                     <div class="h-0.5 w-10 bg-accentColor1 mt-0"></div>
                     <p class="font-medium mt-4 tracking-tight w-full text-left lg:text-center">
-                        {{ priority?.providers?.description }}
+                        {{ priority?.providers?.description || 'Creator of the Boost Fertility method. Daniel brings deep industry knowledge and is the author of \'We Want a Baby Now\', the essential guide to overcoming infertility on a budget.' }}
                     </p>
                     <div class="flex flex-row gap-4 w-full justify-start lg:justify-center items-center mt-2">
                         <img :src="certificationIcon?.src || '/assets/images/checkmark-star.svg'"
                             :alt="certificationIcon?.alt || 'checkmark'"
                             class="w-[28px] h-[28px] object-cover" />
-                        <p>{{ priority?.providers?.certification || 'Certified doctors and clinicians' }}</p>
+                        <p>{{ priority?.providers?.certification || 'Author of \'We Want a Baby Now\' (3rd Edition)' }}</p>
                     </div>
                 </div>
             </div>
