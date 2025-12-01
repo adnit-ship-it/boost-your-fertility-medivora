@@ -43,7 +43,7 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
                             delay: 50,
                         },
                     }" class="font-semibold  text-[32px] lg:text-[48px] text-accentColor1 mb-2 lg:mb-4">
-                        {{ banner?.title || 'About Us' }}
+                        {{ banner?.title || 'Welcome to Boost Fertility' }}
                     </h1>
                     <h2 v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
                         opacity: 1,
@@ -57,7 +57,7 @@ const shouldShowBanner = computed(() => (banner.value?.show ?? true));
                             delay: 100,
                         },
                     }" class="font-semibold text-[24px] lg:text-[34px]">
-                        {{ banner?.subtitle || 'Quality is our guarantee!' }}
+                        {{ banner?.subtitle || 'A pioneering brand dedicated to providing innovative solutions for fertility enhancement.' }}
                     </h2>
                     <p v-motion :initial="{ opacity: 0, y: 100 }" :visible-once="{
                         opacity: 1,
