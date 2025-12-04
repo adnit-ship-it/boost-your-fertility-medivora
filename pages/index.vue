@@ -8,6 +8,7 @@
     <SectionsJourney />
     <SectionsCTA />
     <!-- <SectionsBeforeAfter /> -->
+    <SectionsFAQ />
     <SectionsIntakeForm />
   </div>
 </template>
