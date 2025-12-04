@@ -16,7 +16,7 @@ function transformDatabaseQuizToQuizConfig(dbQuiz: FullQuiz): QuizConfig {
       id: step.slug, // Use slug for ID
       name: step.name,
       description: step.description,
-      color: step.color || "#A75809"
+      color: step.color || "#0471F6"
     })),
     stepProgressMapping: dbQuiz.stepProgressMapping.map(mapping => {
       // Find the form step slug using its UUID

@@ -27,7 +27,7 @@
                 <p class="text-[14px] md:text-[20px] font-inter mb-2">To get started, please select your gender *</p>
                 <div class="flex gap-4">
                     <label class="flex items-center gap-2 cursor-pointer p-3 rounded-lg border-2 transition-colors w-full"
-                        :class="genderValue === 'Male' ? 'border-accentColor1 bg-accentColor1/10' : 'border-gray-200 hover:border-accentColor1/50'">
+                        :class="genderValue === 'Male' ? 'border-accentColor1 bg-accentColor1/10' : 'border-gray-200 hover:border-accentColor1'">
                         <input 
                             type="radio" 
                             name="gender" 
@@ -38,7 +38,7 @@
                         <span class="text-[14px] md:text-[20px]">Male</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer p-3 rounded-lg border-2 transition-colors w-full "
-                        :class="genderValue === 'Female' ? 'border-accentColor1 bg-accentColor1/10' : 'border-gray-200 hover:border-accentColor1/50'">
+                        :class="genderValue === 'Female' ? 'border-accentColor1 bg-accentColor1/10' : 'border-gray-200 hover:border-accentColor1'">
                         <input 
                             type="radio" 
                             name="gender" 
@@ -108,6 +108,11 @@ const buttonFontSize = computed(() => (isMobile.value ? "16" : "24"));
 /* Custom radio button styling to use accentColor1 when selected */
 input[type="radio"] {
     accent-color: #0471F6; /* accentColor1 value from designTokens */
+}
+
+/* Ensure the radio button uses accentColor1 on hover */
+input[type="radio"]:hover {
+    accentColor1: #0471F6;
 }
 
 /* Ensure the radio button uses accentColor1 when checked */
